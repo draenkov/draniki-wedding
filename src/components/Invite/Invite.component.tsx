@@ -13,7 +13,7 @@ const Invite: FC = () => (
                 <p className={styles.tip}>дата</p>
             </div>
             <div className={styles.infoItem}>
-                <p>Гродно</p>
+                <p>г. Гродно</p>
                 <p className={styles.tip}>место</p>
             </div>
         </div>
@@ -23,6 +23,7 @@ const Invite: FC = () => (
             width={400}
             height={400}
             className={styles.photo}
+            priority
         />
         <div className={styles.description}>
             <h2 className={styles.title}>Дорогие друзья и семья</h2>

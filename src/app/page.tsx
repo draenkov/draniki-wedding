@@ -3,11 +3,15 @@ import { FC } from 'react';
 import { fontPrimary } from 'styles/fonts';
 import Invite from 'components/Invite/Invite.component';
 import Info from 'components/Info/Info.component';
+import Timeline from 'components/Timeline/Timeline.component';
 
 const Home: FC = () => (
     <div className={`${fontPrimary.className} ${styles.page}`}>
-        <Invite />
-        <Info />
+        <div className={styles.container}>
+            <Invite />
+            <Info />
+        </div>
+        <Timeline />
     </div>
 );
 

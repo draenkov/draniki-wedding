@@ -12,16 +12,14 @@ const Info: FC = () => (
             </div>
             <div className={styles.infoItem}>
                 <p className={styles.title}>Где?</p>
-                <p>Гродно</p>
+                <p>г. Гродно</p>
             </div>
         </div>
-        <div>
             <Image
                 src={photo as string}
                 alt="Второе лучшее фото молодых"
                 className={styles.photo}
             />
-        </div>
     </div>
 );
 
