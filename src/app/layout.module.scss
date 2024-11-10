@@ -1,0 +1,16 @@
+@use 'styles/variables' as vars;
+@use 'styles/mixins' as mixins;
+
+.container {
+  display: flex;
+  background-color: vars.$backgroundPrimary;
+  padding: 0 calc(50% - 360px);
+
+  @include mixins.breakpoint(sm) {
+    padding: 0 calc(50% - 270px);
+  }
+
+  @include mixins.breakpoint(xs) {
+    padding: 0 16px;
+  }
+}
