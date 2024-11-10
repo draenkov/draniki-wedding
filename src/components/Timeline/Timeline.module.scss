@@ -44,6 +44,11 @@
 
   @include mixins.breakpoint(xs) {
     gap: 16px;
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
   }
 }
 
