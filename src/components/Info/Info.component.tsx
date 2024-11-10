@@ -15,11 +15,7 @@ const Info: FC = () => (
                 <p>г. Гродно</p>
             </div>
         </div>
-            <Image
-                src={photo as string}
-                alt="Второе лучшее фото молодых"
-                className={styles.photo}
-            />
+        <Image src={photo as string} alt="Второе лучшее фото молодых" className={styles.photo} />
     </div>
 );
 
