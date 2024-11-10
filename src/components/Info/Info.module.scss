@@ -1,0 +1,47 @@
+@use 'styles/variables' as vars;
+@use 'styles/mixins' as mixins;
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+
+  @include mixins.breakpoint(xs) {
+    gap: 25px;
+  }
+}
+
+.info {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 25px;
+  gap: 25px;
+
+  @include mixins.breakpoint(xs) {
+    padding: 0 16px;
+    gap: 16px;
+  }
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo {
+  max-width: 100%;
+  max-height: fit-content;
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 10px;
+
+  @include mixins.breakpoint(xs) {
+    font-size: 24px;
+  }
+}
