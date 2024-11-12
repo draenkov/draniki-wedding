@@ -11,7 +11,6 @@
 .place {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 25px;
   border: 1px solid vars.$colorBorder;
   border-radius: 25px;
@@ -34,7 +33,6 @@
 }
 
 .title {
-  text-align: center;
   font-size: 40px;
 
   @include mixins.breakpoint(xs) {
@@ -45,6 +43,5 @@
 .info {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 5px;
 }

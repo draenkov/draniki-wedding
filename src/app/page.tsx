@@ -5,6 +5,7 @@ import Invite from 'components/Invite/Invite.component';
 import Info from 'components/Info/Info.component';
 import Timeline from 'components/Timeline/Timeline.component';
 import Place from 'components/Place/Place.component';
+import DressCode from 'components/DressCode/DressCode.component';
 
 const Home: FC = () => (
     <div className={`${fontPrimary.className} ${styles.page}`}>
@@ -14,6 +15,7 @@ const Home: FC = () => (
         </div>
         <Timeline />
         <Place />
+        <DressCode />
     </div>
 );
 
