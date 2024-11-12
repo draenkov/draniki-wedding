@@ -3,7 +3,7 @@
 
 .wrap {
   color: vars.$colorTextPrimary;
-  background-color: vars.$backgroundSecondary;
+  background-color: vars.$backgroundPrimary;
   padding: 50px 0;
 
   @include mixins.breakpoint(xs) {
@@ -18,12 +18,12 @@
 .title {
   font-size: 40px;
   padding: 0 25px;
-  margin-bottom: 25px;
+  margin-bottom: 50px;
 
   @include mixins.breakpoint(xs) {
     font-size: 24px;
     padding: 0 16px;
-    margin-bottom: 16px;
+    margin-bottom: 25px;
   }
 }
 
@@ -31,11 +31,11 @@
   display: flex;
   flex-direction: column;
   gap: 50px;
-  padding: 25px;
+  padding: 0 25px;
 
   @include mixins.breakpoint(xs) {
     gap: 25px;
-    padding: 16px;
+    padding: 0 16px;
   }
 }
 

@@ -1,0 +1,42 @@
+@use 'styles/variables' as vars;
+@use 'styles/mixins';
+
+.fieldWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fieldError .input {
+  outline: solid 2px vars.$colorError;
+}
+
+.input {
+  padding: 10px 20px;
+  font-size: 14px;
+  color: var(--colorText);
+  border: none;
+  border-radius: 8px;
+  background-color: vars.$backgroundLight;
+  line-height: 30px;
+  width: 100%;
+  box-shadow: vars.$inputShadow;
+
+  @include mixins.breakpoint(xs) {
+    font-size: 10px;
+    line-height: 20px;
+    padding: 8px 16px;
+  }
+
+  &:focus {
+    outline: solid 2px vars.$colorAccent;
+  }
+
+  &::placeholder {
+    color: vars.$backgroundSecondary;
+  }
+}
+
+.disabled {
+  background-color: vars.$backgroundDisabled;
+}

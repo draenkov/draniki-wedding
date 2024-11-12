@@ -1,0 +1,81 @@
+@use 'styles/variables' as vars;
+@use 'styles/mixins' as mixins;
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radioGroup {
+    display: flex;
+    gap: 10px;
+    width: fit-content
+}
+
+.column {
+    flex-direction: column;
+}
+
+.customRadio {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.customRadio > input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.customRadio > span {
+    user-select: none;
+    font-size: 14px;
+
+    @include mixins.breakpoint(xs) {
+        font-size: 10px;
+    }
+}
+
+.control {
+    background-color: vars.$backgroundLight;
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: vars.$inputShadow;
+
+    &::before {
+        content: '';
+        width: 10px;
+        height: 10px;
+        background-color: vars.$backgroundLight;
+        border-radius: 50%;
+    }
+}
+
+.customRadio > input:focus-visible + .control {
+    outline: solid 2px vars.$colorAccent;
+}
+
+.customRadio > input:checked + .control::before {
+    background-color: vars.$colorAccent;
+}
+
+.customRadio > input:disabled + .control {
+    background-color: vars.$backgroundDisabled;
+
+    &::before {
+        background-color: vars.$backgroundDisabled;
+    }
+}
+
+.radioError {
+    .customRadio {
+        outline: solid 2px vars.$colorError;
+    }
+}

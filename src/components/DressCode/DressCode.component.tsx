@@ -29,7 +29,6 @@ const DressCode: FC = () => (
                     alt="Третье лучшее фото молодых"
                     className={styles.photo}
                 />
-                <div className={styles.line} />
             </div>
         </div>
     </div>
