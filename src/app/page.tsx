@@ -4,6 +4,7 @@ import { fontPrimary } from 'styles/fonts';
 import Invite from 'components/Invite/Invite.component';
 import Info from 'components/Info/Info.component';
 import Timeline from 'components/Timeline/Timeline.component';
+import Place from 'components/Place/Place.component';
 
 const Home: FC = () => (
     <div className={`${fontPrimary.className} ${styles.page}`}>
@@ -12,6 +13,7 @@ const Home: FC = () => (
             <Info />
         </div>
         <Timeline />
+        <Place />
     </div>
 );
 

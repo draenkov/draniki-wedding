@@ -1,0 +1,50 @@
+@use 'styles/variables' as vars;
+@use 'styles/mixins' as mixins;
+
+.wrap {
+  color: vars.$colorTextPrimary;
+  background-color: vars.$colorAccent;
+
+  @include mixins.container;
+}
+
+.place {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  border: 1px solid vars.$colorBorder;
+  border-radius: 25px;
+  gap: 50px;
+  margin-bottom: 50px;
+
+  @include mixins.breakpoint(xs) {
+    padding: 16px;
+    gap: 25px;
+    margin-bottom: 25px;
+  }
+
+  iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    border-radius: 16px;
+    box-shadow: vars.$shadow;
+  }
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+
+  @include mixins.breakpoint(xs) {
+    font-size: 24px;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}

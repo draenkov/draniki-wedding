@@ -4,16 +4,15 @@
 .wrap {
   color: vars.$colorTextSecondary;
   background-color: vars.$colorAccent;
-  padding: 50px calc(50% - 360px);
-
-  @include mixins.breakpoint(sm) {
-    padding: 50px calc(50% - 270px);
-  }
+  padding: 50px 0;
 
   @include mixins.breakpoint(xs) {
-    padding: 16px;
-    gap: 25px;
+    padding: 25px 0;
   }
+}
+
+.container {
+  @include mixins.container;
 }
 
 .title {
