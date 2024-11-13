@@ -7,6 +7,9 @@ import TextInput from 'components/Form/Controls/TextInput/TextInput.component';
 import RadioInput from 'components/Form/Controls/RadioInput/RadioInput.component';
 import Checkbox from 'components/Form/Controls/Checkbox/Checkbox.component';
 import Button from 'components/Button/Button.component';
+import { schema } from 'components/Confirmation/Confirmation.config';
+import { yupResolver } from '@hookform/resolvers/yup';
+
 interface FormValues {
     name: string;
     confirmation: string;
@@ -22,7 +25,7 @@ interface FormValues {
 
 const defaultValues: FormValues = {
     name: '',
-    confirmation: '',
+    confirmation: 'positive',
     whiskey: false,
     vodka: false,
     wine: false,
@@ -48,9 +51,10 @@ const Confirmation: FC = () => {
     const { handleSubmit, control, watch } = useForm<FormValues>({
         mode: 'onBlur',
         defaultValues,
+        resolver: yupResolver(schema),
     });
 
-    const isAllergy = watch('isAllergy');
+    const isAllergy = watch().isAllergy;
 
     const onSubmit = values => {
         console.log(values);
