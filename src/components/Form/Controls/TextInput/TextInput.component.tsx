@@ -15,6 +15,7 @@ const TextInput = <T extends FieldValues>({
     name,
     control,
     maxLength,
+    className = '',
 }: TextInputProps<T>): ReactElement => {
     const {
         field: { value, onChange, onBlur },
@@ -23,7 +24,7 @@ const TextInput = <T extends FieldValues>({
 
     return (
         <div
-            className={`${styles.fieldWrap} ${fieldState.error?.message ? styles.fieldError : ''}`}
+            className={`${styles.fieldWrap} ${fieldState.error?.message ? styles.fieldError : ''} ${className}`}
         >
             {label && <Label label={label} name={name} />}
 

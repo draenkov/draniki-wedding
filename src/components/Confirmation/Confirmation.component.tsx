@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import TextInput from 'components/Form/Controls/TextInput/TextInput.component';
 import RadioInput from 'components/Form/Controls/RadioInput/RadioInput.component';
 import Checkbox from 'components/Form/Controls/Checkbox/Checkbox.component';
+import Button from 'components/Button/Button.component';
 interface FormValues {
     name: string;
     confirmation: string;
@@ -14,9 +15,12 @@ interface FormValues {
     wine: boolean;
     champagne: boolean;
     nonAlco: boolean;
+    isAllergy: boolean;
+    allergyType: string;
+    removeMeat: boolean;
 }
 
-const defaultValues = {
+const defaultValues: FormValues = {
     name: '',
     confirmation: '',
     whiskey: false,
@@ -24,6 +28,9 @@ const defaultValues = {
     wine: false,
     champagne: false,
     nonAlco: false,
+    isAllergy: false,
+    allergyType: '',
+    removeMeat: false,
 };
 
 const confirmationOptions = [
@@ -38,10 +45,12 @@ const confirmationOptions = [
 ];
 
 const Confirmation: FC = () => {
-    const { handleSubmit, control } = useForm<FormValues>({
+    const { handleSubmit, control, watch } = useForm<FormValues>({
         mode: 'onBlur',
         defaultValues,
     });
+
+    const isAllergy = watch('isAllergy');
 
     const onSubmit = values => {
         console.log(values);
@@ -92,7 +101,31 @@ const Confirmation: FC = () => {
                             />
                         </div>
 
-                        <button type="submit">Отправить</button>
+                        <div className={styles.group}>
+                            <p>Предпочтения по еде</p>
+                            <Checkbox<FormValues>
+                                name="removeMeat"
+                                control={control}
+                                label="Убрать мясо"
+                            />
+
+                            <Checkbox<FormValues>
+                                name="isAllergy"
+                                control={control}
+                                label="Есть аллергия"
+                            />
+
+                            {isAllergy && (
+                                <TextInput<FormValues>
+                                    name="allergyType"
+                                    control={control}
+                                    placeholder="Аллергия"
+                                    maxLength={60}
+                                />
+                            )}
+                        </div>
+
+                        <Button type="submit" text="Отправить" />
                     </form>
                 </div>
             </div>
