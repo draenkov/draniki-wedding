@@ -1,4 +1,4 @@
-import { FieldValues, useController } from 'react-hook-form';
+import { type FieldValues, useController } from 'react-hook-form';
 import { CheckboxProps } from 'components/Form/Controls/Checkbox/Checkbox.types';
 import { ReactElement } from 'react';
 import styles from 'components/Form/Controls/Checkbox/Checkbox.module.scss';

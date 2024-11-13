@@ -39,7 +39,7 @@
 }
 
 .control {
-    background-color: vars.$backgroundLight;
+    background-color: vars.$backgroundInput;
     margin-right: 10px;
     width: 24px;
     height: 24px;
@@ -54,7 +54,7 @@
         content: '';
         width: 10px;
         height: 10px;
-        background-color: vars.$backgroundLight;
+        background-color: vars.$backgroundInput;
         border-radius: 50%;
         transition: all .2s linear;
     }
@@ -65,14 +65,14 @@
 }
 
 .customRadio > input:checked + .control::before {
-    background-color: vars.$colorAccent;
+    background-color: vars.$backgroundAccent;
 }
 
 .customRadio > input:disabled + .control {
-    background-color: vars.$backgroundDisabled;
+    background-color: darken(vars.$backgroundInput, 5);
 
     &::before {
-        background-color: vars.$backgroundDisabled;
+        background-color: darken(vars.$backgroundInput, 5);
     }
 }
 

@@ -25,7 +25,7 @@
         height: 3px;
         content: "";
         display: block;
-        background-color: vars.$colorAccent;
+        background-color: vars.$backgroundAccent;
     }
 
     &::after {
@@ -33,7 +33,7 @@
         height: 9px;
         content: "";
         display: block;
-        background-color: vars.$colorAccent;
+        background-color: vars.$backgroundAccent;
     }
 }
 
@@ -54,7 +54,7 @@
     }
 
     &:disabled + .customCheckbox {
-        background-color: vars.$backgroundDisabled;
+        background-color: darken(vars.$backgroundInput, 5);
         cursor: default;
     }
 }
@@ -66,7 +66,7 @@
     width: 24px;
     height: 24px;
     border-radius: 2px;
-    background-color: vars.$backgroundLight;
+    background-color: vars.$backgroundInput;
     box-shadow: vars.$inputShadow;
     cursor: pointer;
 }

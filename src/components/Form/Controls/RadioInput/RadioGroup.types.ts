@@ -1,5 +1,5 @@
 import { ChangeEventHandler, FocusEventHandler } from 'react';
-import { Control, FieldValues, Path } from 'react-hook-form';
+import { type Control, type FieldValues, type Path } from 'react-hook-form';
 
 interface RadioOptions {
     label: string;

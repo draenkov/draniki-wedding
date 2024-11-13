@@ -16,8 +16,8 @@
   font-size: 14px;
   color: var(--colorText);
   border: none;
-  border-radius: 8px;
-  background-color: vars.$backgroundLight;
+  border-radius: vars.$borderRadiusMini;
+  background-color: vars.$backgroundInput;
   line-height: 30px;
   width: 100%;
   box-shadow: vars.$inputShadow;
@@ -33,10 +33,10 @@
   }
 
   &::placeholder {
-    color: vars.$backgroundSecondary;
+    color: vars.$colorPlaceholder;
   }
 }
 
 .disabled {
-  background-color: vars.$backgroundDisabled;
+  background-color: darken(vars.$backgroundInput, 5);
 }

@@ -52,12 +52,12 @@
 
 .color {
   flex: 1;
-  border-radius: 16px;
+  border-radius: vars.$borderRadius;
   aspect-ratio: 1 / 1;
   box-shadow: vars.$shadow;
 
   @include mixins.breakpoint(xs) {
-    border-radius: 8px;
+    border-radius: vars.$borderRadiusMini;
   }
 }
 
@@ -70,5 +70,5 @@
 .line {
   width: 100%;
   height: 1px;
-  background-color: vars.$colorTextPrimary;
+  background-color: vars.$backgroundLine;
 }

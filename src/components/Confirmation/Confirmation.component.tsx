@@ -56,7 +56,7 @@ const Confirmation: FC = () => {
 
     const isAllergy = watch().isAllergy;
 
-    const onSubmit = values => {
+    const onSubmit = (values: FormValues): void => {
         console.log(values);
     };
 
@@ -71,7 +71,7 @@ const Confirmation: FC = () => {
                         <p>Ваши ответы очень помогут нам при организации свадьбы</p>
                     </div>
 
-                    <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+                    <form onSubmit={() => handleSubmit(onSubmit)} className={styles.form}>
                         <TextInput<FormValues>
                             name="name"
                             control={control}

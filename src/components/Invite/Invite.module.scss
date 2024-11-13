@@ -7,11 +7,12 @@
   align-items: center;
   padding: 25px;
   border: 1px solid vars.$colorBorder;
-  border-radius: 25px;
+  border-radius: vars.$borderRadius;
   gap: 50px;
 
   @include mixins.breakpoint(xs) {
     padding: 16px;
+    border-radius: vars.$borderRadiusMini;
   }
 }
 

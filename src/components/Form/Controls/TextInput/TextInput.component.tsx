@@ -1,4 +1,4 @@
-import { FieldValues, useController } from 'react-hook-form';
+import { type FieldValues, useController } from 'react-hook-form';
 import Label from 'components/Form/Label/Label.component';
 import Error from 'components/Form/Error/Error.component';
 import { TextInputProps } from 'components/Form/Controls/TextInput/TextInput.types';

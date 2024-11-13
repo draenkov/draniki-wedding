@@ -3,7 +3,7 @@
 
 .wrap {
   color: vars.$colorTextSecondary;
-  background-color: vars.$colorAccent;
+  background-color: vars.$backgroundAccent;
   padding: 50px 0;
 
   @include mixins.breakpoint(xs) {
