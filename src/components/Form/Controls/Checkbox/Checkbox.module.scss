@@ -4,10 +4,6 @@
 .title {
     line-height: 25px;
     font-size: 14px;
-
-    @include mixins.breakpoint(xs) {
-        font-size: 10px;
-    }
 }
 
 .checkIcon {
