@@ -22,16 +22,16 @@
   @include mixins.container;
 }
 
-.login {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  padding: 25px;
-  border: 1px solid vars.$colorBorder;
-  border-radius: vars.$borderRadius;
-
-  @include mixins.breakpoint(xs) {
-    padding: 16px;
-    gap: 16px;
-  }
-}
+//.login {
+//  display: flex;
+//  flex-direction: column;
+//  gap: 25px;
+//  padding: 25px;
+//  border: 1px solid vars.$colorBorder;
+//  border-radius: vars.$borderRadius;
+//
+//  @include mixins.breakpoint(xs) {
+//    padding: 16px;
+//    gap: 16px;
+//  }
+//}

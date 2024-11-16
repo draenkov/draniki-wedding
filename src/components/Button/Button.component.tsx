@@ -5,7 +5,7 @@ import { fontPrimary } from 'styles/fonts';
 
 const Button: FC<ButtonProps> = ({ type, className = '', text, onClick, isDisabled, name }) => (
     <button
-        type={type}
+        type={type || 'button'}
         className={`${styles.button} ${fontPrimary.className} ${className}`}
         onClick={onClick}
         disabled={isDisabled}

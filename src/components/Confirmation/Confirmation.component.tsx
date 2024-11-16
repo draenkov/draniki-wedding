@@ -9,6 +9,7 @@ import Checkbox from 'components/Form/Controls/Checkbox/Checkbox.component';
 import Button from 'components/Button/Button.component';
 import { schema } from 'components/Confirmation/Confirmation.config';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useRouter } from 'next/navigation';
 
 interface FormValues {
     name: string;
@@ -48,6 +49,7 @@ const confirmationOptions = [
 ];
 
 const Confirmation: FC = () => {
+    const router = useRouter();
     const { handleSubmit, control, watch } = useForm<FormValues>({
         mode: 'onBlur',
         defaultValues,
@@ -71,7 +73,7 @@ const Confirmation: FC = () => {
                         <p>Ваши ответы очень помогут нам при организации свадьбы</p>
                     </div>
 
-                    <form onSubmit={() => handleSubmit(onSubmit)} className={styles.form}>
+                    <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                         <TextInput<FormValues>
                             name="name"
                             control={control}
@@ -131,6 +133,8 @@ const Confirmation: FC = () => {
 
                         <Button type="submit" text="Отправить" />
                     </form>
+
+                    <Button text="админка" onClick={() => router.push('/admin')} />
                 </div>
             </div>
         </div>
