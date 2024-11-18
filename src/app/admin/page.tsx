@@ -15,8 +15,6 @@ const Admin: FC = () => {
 
     // TODO: вызывается 2 раза, мб просто положить в local storage?
     useEffect(() => {
-        console.log(user);
-
         if (!user) {
             router.replace('/login');
         }

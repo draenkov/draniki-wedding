@@ -9,6 +9,7 @@ import Button from 'components/Button/Button.component';
 import { signIn } from 'firebase/config';
 import { useRouter } from 'next/navigation';
 import { useAuthContext } from 'context/AuthContext';
+import Loader from 'components/Loader/Loader.component';
 
 interface FormValues {
     email: string;
@@ -41,6 +42,10 @@ const Login: FC = () => {
             router.replace('/admin');
         }
     };
+
+    if (user) {
+        return <Loader />;
+    }
 
     return (
         <div className={`${styles.wrap} ${fontPrimary.className}`}>
