@@ -1,10 +1,10 @@
-import { FirebaseError, initializeApp } from '@firebase/app';
+import { FirebaseError, initializeApp } from 'firebase/app';
 import {
     getAuth,
     signInWithEmailAndPassword,
     UserCredential,
     signOut as handleSignOut,
-} from '@firebase/auth';
+} from 'firebase/auth';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyBhPmMTuKHCv3EV-SUO6sdKHgj0rSZCIKM',
