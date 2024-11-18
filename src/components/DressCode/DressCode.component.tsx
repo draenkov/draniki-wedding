@@ -3,7 +3,8 @@ import styles from 'components/DressCode/DressCode.module.scss';
 import photo from 'assets/img/photo2.jpg';
 import Image from 'next/image';
 
-const colors = ['#333D51', '#D3AC2B', '#F4F3EA', 'aqua', 'pink'];
+const colors = ['#333D51', '#7c8d44', '#D3AC2B', '#CBD0D8', '#F5F3E2'];
+// '#6b3c25'
 
 const DressCode: FC = () => (
     <div className={styles.wrap}>
