@@ -7,7 +7,7 @@ import {
 } from '@firebase/auth';
 
 const firebaseConfig = {
-    apiKey: process.env.NEXT_PUBLIC_FIREBASE_KEY,
+    apiKey: 'AIzaSyBhPmMTuKHCv3EV-SUO6sdKHgj0rSZCIKM',
     authDomain: 'wedding-invitation-4f0ab.firebaseapp.com',
     projectId: 'wedding-invitation-4f0ab',
     storageBucket: 'wedding-invitation-4f0ab.firebasestorage.app',
