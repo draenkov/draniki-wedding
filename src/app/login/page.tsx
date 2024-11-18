@@ -6,10 +6,10 @@ import TextInput from 'components/Form/Controls/TextInput/TextInput.component';
 import { useForm } from 'react-hook-form';
 import { fontPrimary } from 'styles/fonts';
 import Button from 'components/Button/Button.component';
-import { signIn } from 'firebase/config';
 import { useRouter } from 'next/navigation';
 import { useAuthContext } from 'context/AuthContext';
 import Loader from 'components/Loader/Loader.component';
+import { signIn } from 'api/auth';
 
 interface FormValues {
     email: string;

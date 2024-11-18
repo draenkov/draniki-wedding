@@ -9,8 +9,9 @@ import Checkbox from 'components/Form/Controls/Checkbox/Checkbox.component';
 import Button from 'components/Button/Button.component';
 import { schema } from 'components/Confirmation/Confirmation.config';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { setGuestResponse } from 'api/admin';
 
-interface FormValues {
+export interface FormValues {
     name: string;
     confirmation: string;
     whiskey: boolean;
@@ -55,9 +56,10 @@ const Confirmation: FC = () => {
     });
 
     const isAllergy = watch().isAllergy;
+    const isNegative = watch().confirmation === 'negative';
 
-    const onSubmit = (values: FormValues): void => {
-        console.log(values);
+    const onSubmit = async (values: FormValues): Promise<void> => {
+        await setGuestResponse(values);
     };
 
     return (
@@ -87,47 +89,63 @@ const Confirmation: FC = () => {
                             options={confirmationOptions}
                         />
 
-                        <div className={styles.group}>
-                            <p>Предпочтения по напиткам</p>
+                        {!isNegative && (
+                            <>
+                                <div className={styles.group}>
+                                    <p>Предпочтения по напиткам</p>
 
-                            <Checkbox<FormValues> name="whiskey" control={control} label="Виски" />
-                            <Checkbox<FormValues> name="vodka" control={control} label="Водка" />
-                            <Checkbox<FormValues> name="wine" control={control} label="Вино" />
-                            <Checkbox<FormValues>
-                                name="champagne"
-                                control={control}
-                                label="Шампанское"
-                            />
-                            <Checkbox<FormValues>
-                                name="nonAlco"
-                                control={control}
-                                label="Что-нибудь безалкогольное"
-                            />
-                        </div>
+                                    <Checkbox<FormValues>
+                                        name="whiskey"
+                                        control={control}
+                                        label="Виски"
+                                    />
+                                    <Checkbox<FormValues>
+                                        name="vodka"
+                                        control={control}
+                                        label="Водка"
+                                    />
+                                    <Checkbox<FormValues>
+                                        name="wine"
+                                        control={control}
+                                        label="Вино"
+                                    />
+                                    <Checkbox<FormValues>
+                                        name="champagne"
+                                        control={control}
+                                        label="Шампанское"
+                                    />
+                                    <Checkbox<FormValues>
+                                        name="nonAlco"
+                                        control={control}
+                                        label="Что-нибудь безалкогольное"
+                                    />
+                                </div>
 
-                        <div className={styles.group}>
-                            <p>Предпочтения по еде</p>
-                            <Checkbox<FormValues>
-                                name="removeMeat"
-                                control={control}
-                                label="Убрать мясо"
-                            />
+                                <div className={styles.group}>
+                                    <p>Предпочтения по еде</p>
+                                    <Checkbox<FormValues>
+                                        name="removeMeat"
+                                        control={control}
+                                        label="Убрать мясо"
+                                    />
 
-                            <Checkbox<FormValues>
-                                name="isAllergy"
-                                control={control}
-                                label="Есть аллергия"
-                            />
+                                    <Checkbox<FormValues>
+                                        name="isAllergy"
+                                        control={control}
+                                        label="Есть аллергия"
+                                    />
 
-                            {isAllergy && (
-                                <TextInput<FormValues>
-                                    name="allergyType"
-                                    control={control}
-                                    placeholder="Аллергия"
-                                    maxLength={60}
-                                />
-                            )}
-                        </div>
+                                    {isAllergy && (
+                                        <TextInput<FormValues>
+                                            name="allergyType"
+                                            control={control}
+                                            placeholder="Аллергия"
+                                            maxLength={60}
+                                        />
+                                    )}
+                                </div>
+                            </>
+                        )}
 
                         <Button type="submit" text="Отправить" />
                     </form>

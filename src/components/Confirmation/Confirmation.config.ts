@@ -6,7 +6,7 @@ const ERRORS = {
     onlyCyrillic: 'Только русские символы',
     incorrect: 'Нет в списке гостей. Проверьте введенные данные',
 };
-const surnameList = ['Драенков', 'Драенкова', 'Бондарев'];
+const surnameList = ['Драенков', 'Драенкова', 'Бондарев', 'Пупкин'];
 
 const checkSurname = (name: string): boolean =>
     !!name.split(' ').find(value => surnameList.includes(value));
