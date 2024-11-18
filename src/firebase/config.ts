@@ -2,8 +2,8 @@ import { FirebaseError, initializeApp } from 'firebase/app';
 import {
     getAuth,
     signInWithEmailAndPassword,
-    UserCredential,
     signOut as handleSignOut,
+    UserCredential,
 } from 'firebase/auth';
 
 const firebaseConfig = {
