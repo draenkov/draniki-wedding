@@ -35,7 +35,7 @@ const Admin: FC = () => {
         defaultValues,
     });
 
-    const handleGetGuests = async () => {
+    const handleGetGuests = async (): Promise<void> => {
         const res = await getGuests();
         if (res) {
             const sortedRes = Object.values(res).sort((a, b) => {
@@ -65,7 +65,7 @@ const Admin: FC = () => {
         reset();
     };
 
-    const handleGetResponses = async () => {
+    const handleGetResponses = async (): Promise<void> => {
         if (user) {
             const res = await getGuestResponses();
 

@@ -8,7 +8,7 @@ export const getGuestResponses = async (): Promise<Record<string, FormValues>> =
     const snapshot = await get(child(dbRef, 'guestResponses'));
 
     if (snapshot.exists()) {
-        return snapshot.val();
+        return snapshot.val() as Record<string, FormValues>;
     }
 };
 
@@ -24,7 +24,7 @@ export const getGuests = async (): Promise<Record<string, string>> => {
     const snapshot = await get(child(dbRef, 'guests'));
 
     if (snapshot.exists()) {
-        return snapshot.val();
+        return snapshot.val() as Record<string, string>;
     }
 };
 
