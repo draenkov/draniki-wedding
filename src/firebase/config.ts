@@ -3,7 +3,7 @@ import {
     getAuth,
     signInWithEmailAndPassword,
     signOut as handleSignOut,
-    UserCredential,
+    type UserCredential,
 } from 'firebase/auth';
 
 const firebaseConfig = {
