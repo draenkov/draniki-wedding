@@ -7,7 +7,21 @@ const ERRORS = {
     incorrect: 'Нет в списке гостей. Проверьте введенные данные',
 };
 
-const checkGuest = (name: string, { options }: TestContext): boolean => name in options.context;
+const checkGuest = (name: string, { options }: TestContext): boolean => {
+    const clearName = name
+        .replaceAll('ё', 'е')
+        .split(' ')
+        .reduce<string[]>((acc, nameItem) => {
+            if (nameItem) {
+                acc.push(nameItem);
+            }
+
+            return acc;
+        }, [])
+        .join(' ');
+
+    return clearName in options.context;
+};
 
 export const schema = object({
     name: string()
