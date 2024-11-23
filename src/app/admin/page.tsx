@@ -12,6 +12,7 @@ import { getGuestResponses, getGuests } from 'api/admin';
 import Widgets from 'components/Admin/Widgets/Widgets.component';
 import GuestList from 'components/Admin/GuestList/GuestList.component';
 import { GuestResponse } from 'components/Confirmation/Confirmation.types';
+import DrinksSummary from 'components/Admin/DrinksSummary/DrinksSummary.component';
 
 const Admin: FC = () => {
     const { user } = useAuthContext();
@@ -87,6 +88,8 @@ const Admin: FC = () => {
                     />
 
                     <div className={styles.line} />
+
+                    <DrinksSummary guests={guests} guestResponses={guestResponses} />
                 </div>
             </div>
         </div>

@@ -24,12 +24,12 @@
 .admin {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 50px;
   padding: 25px;
 
   @include mixins.breakpoint(xs) {
     padding: 16px;
-    gap: 16px;
+    gap: 25px;
   }
 }
 

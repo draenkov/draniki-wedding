@@ -1,0 +1,31 @@
+@use 'styles/variables' as vars;
+@use 'styles/mixins' as mixins;
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  @include mixins.breakpoint(xs) {
+    gap: 16px;
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.progress {
+  color: vars.$colorTextSecondary;
+  display: flex;
+  flex: 1;
+  padding: 2px 8px;
+  border-radius: vars.$borderRadiusMini;
+  border: 1px solid vars.$colorTextPrimary;
+
+  &.empty {
+    color: vars.$colorTextPrimary;
+  }
+}

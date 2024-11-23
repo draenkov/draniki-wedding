@@ -22,7 +22,6 @@ const Widgets: FC<WidgetsProps> = ({ guests, guestResponses }) => {
     };
 
     useEffect(() => {
-        console.log(guestResponses);
         if (guests?.length && guestResponses) {
             calculate();
         }
