@@ -1,4 +1,4 @@
-import { object, string } from 'yup';
+import { object, string, type TestContext } from 'yup';
 
 const ONLY_CYRILLIC = /^[А-ЯЁ\s-]*$/i;
 const ERRORS = {
@@ -6,14 +6,12 @@ const ERRORS = {
     onlyCyrillic: 'Только русские символы',
     incorrect: 'Нет в списке гостей. Проверьте введенные данные',
 };
-const surnameList = ['Драенков', 'Драенкова', 'Бондарев', 'Пупкин'];
 
-const checkSurname = (name: string): boolean =>
-    !!name.split(' ').find(value => surnameList.includes(value));
+const checkGuest = (name: string, { options }: TestContext): boolean => name in options.context;
 
 export const schema = object({
     name: string()
         .required(ERRORS.required)
         .matches(ONLY_CYRILLIC, ERRORS.onlyCyrillic)
-        .test('checkSurname', ERRORS.incorrect, checkSurname),
+        .test('checkGuest', ERRORS.incorrect, checkGuest),
 });

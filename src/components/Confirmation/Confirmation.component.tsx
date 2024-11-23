@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import styles from 'components/Confirmation/Confirmation.module.scss';
 import { useForm } from 'react-hook-form';
 import TextInput from 'components/Form/Controls/TextInput/TextInput.component';
@@ -9,7 +9,7 @@ import Checkbox from 'components/Form/Controls/Checkbox/Checkbox.component';
 import Button from 'components/Button/Button.component';
 import { schema } from 'components/Confirmation/Confirmation.config';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { setGuestResponse } from 'api/admin';
+import { getGuests, setGuestResponse } from 'api/admin';
 
 export interface FormValues {
     name: string;
@@ -49,11 +49,26 @@ const confirmationOptions = [
 ];
 
 const Confirmation: FC = () => {
+    const [guests, setGuests] = useState<Record<string, string> | null>(null);
     const { handleSubmit, control, watch } = useForm<FormValues>({
         mode: 'onBlur',
         defaultValues,
         resolver: yupResolver(schema),
+        context: guests,
     });
+
+    const handleGetGuests = async (): Promise<void> => {
+        const res = await getGuests();
+        if (res) {
+            setGuests(res);
+        }
+    };
+
+    useEffect(() => {
+        if (!guests) {
+            void handleGetGuests();
+        }
+    }, [guests]);
 
     const isAllergy = watch().isAllergy;
     const isNegative = watch().confirmation === 'negative';

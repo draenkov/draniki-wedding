@@ -51,20 +51,6 @@ const Admin: FC = () => {
         }
     };
 
-    const handleSetGuest = async ({ name }: GuestFormValues): Promise<void> => {
-        await setGuest(name);
-
-        await handleGetGuests();
-        reset();
-    };
-
-    const handleRemoveGuest = async ({ name }: GuestFormValues): Promise<void> => {
-        await removeGuest(name);
-
-        await handleGetGuests();
-        reset();
-    };
-
     const handleGetResponses = async (): Promise<void> => {
         if (user) {
             const res = await getGuestResponses();
@@ -75,12 +61,21 @@ const Admin: FC = () => {
         }
     };
 
+    const onSubmit = async ({ name }: GuestFormValues, shouldRemove: boolean): Promise<void> => {
+        if (name) {
+            await (shouldRemove ? removeGuest : setGuest)(name);
+
+            await handleGetGuests();
+            reset();
+        }
+    };
+
     useEffect(() => {
         if (!user) {
             router.replace('/login');
         } else {
-            handleGetResponses();
-            handleGetGuests();
+            void handleGetResponses();
+            void handleGetGuests();
         }
     }, [user, router]);
 
@@ -100,33 +95,64 @@ const Admin: FC = () => {
         <div className={`${styles.wrap} ${fontPrimary.className}`}>
             <div className={styles.container}>
                 <div className={styles.admin}>
-                    <form className={styles.guests}>
+                    <form
+                        className={styles.guests}
+                        onSubmit={handleSubmit(values => onSubmit(values, false))}
+                    >
                         <div className={styles.btnWrap}>
                             <Button text="Выйти" onClick={handleSignOut} />
                         </div>
                         <div className={styles.line} />
                         <div className={styles.guestList}>
-                            {guests?.map((guest, index) => (
-                                <div className={styles.guestListItem} key={guest}>
-                                    <p key={guest}>
-                                        {index + 1} {guest}
-                                    </p>
+                            <div className={styles.guestListColumn}>
+                                {guests?.slice(0, Math.ceil(guests?.length / 2))?.map(guest => (
+                                    <div className={styles.guestListItem} key={guest}>
+                                        <p key={guest}>
+                                            {guests?.findIndex(
+                                                originalGuest => originalGuest === guest,
+                                            ) + 1}{' '}
+                                            {guest}
+                                        </p>
 
-                                    {guestResponses?.[guest]?.confirmation === 'positive' && (
-                                        <Image src={PositiveIcon as string} alt="positive" />
-                                    )}
+                                        {guestResponses?.[guest]?.confirmation === 'positive' && (
+                                            <Image src={PositiveIcon as string} alt="positive" />
+                                        )}
 
-                                    {guestResponses?.[guest]?.confirmation === 'negative' && (
-                                        <Image src={NegativeIcon as string} alt="negative" />
-                                    )}
-                                </div>
-                            ))}
+                                        {guestResponses?.[guest]?.confirmation === 'negative' && (
+                                            <Image src={NegativeIcon as string} alt="negative" />
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                            <div className={styles.guestListColumn}>
+                                {guests?.slice(Math.ceil(guests?.length / 2))?.map(guest => (
+                                    <div className={styles.guestListItem} key={guest}>
+                                        <p key={guest}>
+                                            {guests?.findIndex(
+                                                originalGuest => originalGuest === guest,
+                                            ) + 1}{' '}
+                                            {guest}
+                                        </p>
+
+                                        {guestResponses?.[guest]?.confirmation === 'positive' && (
+                                            <Image src={PositiveIcon as string} alt="positive" />
+                                        )}
+
+                                        {guestResponses?.[guest]?.confirmation === 'negative' && (
+                                            <Image src={NegativeIcon as string} alt="negative" />
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                         <div className={styles.line} />
                         <TextInput<GuestFormValues> control={control} name="name" />
                         <div className={styles.guestActions}>
-                            <Button text="Добавить" onClick={handleSubmit(handleSetGuest)} />
-                            <Button text="Удалить" onClick={handleSubmit(handleRemoveGuest)} />
+                            <Button text="Добавить" type="submit" />
+                            <Button
+                                text="Удалить"
+                                onClick={handleSubmit(values => onSubmit(values, true))}
+                            />
                         </div>
                     </form>
                 </div>
