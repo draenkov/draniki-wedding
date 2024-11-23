@@ -10,7 +10,7 @@ import { GuestFormValues, GuestListProps } from 'components/Admin/GuestList/Gues
 import { removeGuest, removeGuestResponse, setGuest } from 'api/admin';
 import { fontPrimary } from 'styles/fonts';
 import GuestInfoModal from 'components/Admin/GuestList/GuestInfoModal/GuestInfoModal.component';
-import { GuestResponse } from 'components/Confirmation/Confirmation.component';
+import { GuestResponse } from 'components/Confirmation/Confirmation.types';
 
 const defaultValues: GuestFormValues = {
     name: '',
