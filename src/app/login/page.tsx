@@ -11,12 +11,12 @@ import { useAuthContext } from 'context/AuthContext';
 import Loader from 'components/Loader/Loader.component';
 import { signIn } from 'api/auth';
 
-interface FormValues {
+interface LoginFormValues {
     email: string;
     password: string;
 }
 
-const defaultValues: FormValues = {
+const defaultValues: LoginFormValues = {
     email: '',
     password: '',
 };
@@ -24,7 +24,7 @@ const defaultValues: FormValues = {
 const Login: FC = () => {
     const { user } = useAuthContext();
     const router = useRouter();
-    const { handleSubmit, control } = useForm<FormValues>({
+    const { handleSubmit, control } = useForm<LoginFormValues>({
         mode: 'onBlur',
         defaultValues,
     });
@@ -35,7 +35,7 @@ const Login: FC = () => {
         }
     }, [user, router]);
 
-    const onSubmit = async ({ email, password }: FormValues): Promise<void> => {
+    const onSubmit = async ({ email, password }: LoginFormValues): Promise<void> => {
         const { error } = await signIn(email, password);
 
         if (!error) {
@@ -51,8 +51,8 @@ const Login: FC = () => {
         <div className={`${styles.wrap} ${fontPrimary.className}`}>
             <div className={styles.container}>
                 <form className={styles.login} onSubmit={handleSubmit(onSubmit)}>
-                    <TextInput<FormValues> control={control} name="email" label="Логин" />
-                    <TextInput<FormValues>
+                    <TextInput<LoginFormValues> control={control} name="email" label="Логин" />
+                    <TextInput<LoginFormValues>
                         control={control}
                         name="password"
                         label="Пароль"

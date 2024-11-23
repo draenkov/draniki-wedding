@@ -10,21 +10,9 @@ import Button from 'components/Button/Button.component';
 import { schema } from 'components/Confirmation/Confirmation.config';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { getGuests, setGuestResponse } from 'api/admin';
+import { GuestResponse } from 'components/Confirmation/Confirmation.types';
 
-export interface FormValues {
-    name: string;
-    confirmation: string;
-    whiskey: boolean;
-    vodka: boolean;
-    wine: boolean;
-    champagne: boolean;
-    nonAlco: boolean;
-    isAllergy: boolean;
-    allergyType: string;
-    removeMeat: boolean;
-}
-
-const defaultValues: FormValues = {
+const defaultValues: GuestResponse = {
     name: '',
     confirmation: 'positive',
     whiskey: false,
@@ -50,7 +38,7 @@ const confirmationOptions = [
 
 const Confirmation: FC = () => {
     const [guests, setGuests] = useState<Record<string, string> | null>(null);
-    const { handleSubmit, control, watch } = useForm<FormValues>({
+    const { handleSubmit, control, watch } = useForm<GuestResponse>({
         mode: 'onBlur',
         defaultValues,
         resolver: yupResolver(schema),
@@ -73,7 +61,7 @@ const Confirmation: FC = () => {
     const isAllergy = watch().isAllergy;
     const isNegative = watch().confirmation === 'negative';
 
-    const onSubmit = async (values: FormValues): Promise<void> => {
+    const onSubmit = async (values: GuestResponse): Promise<void> => {
         await setGuestResponse(values);
     };
 
@@ -89,7 +77,7 @@ const Confirmation: FC = () => {
                     </div>
 
                     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-                        <TextInput<FormValues>
+                        <TextInput<GuestResponse>
                             name="name"
                             control={control}
                             label="Имя и Фамилия"
@@ -97,7 +85,7 @@ const Confirmation: FC = () => {
                             maxLength={40}
                         />
 
-                        <RadioInput<FormValues>
+                        <RadioInput<GuestResponse>
                             name="confirmation"
                             control={control}
                             label="Подтвердите присутствие"
@@ -109,27 +97,27 @@ const Confirmation: FC = () => {
                                 <div className={styles.group}>
                                     <p>Предпочтения по напиткам</p>
 
-                                    <Checkbox<FormValues>
+                                    <Checkbox<GuestResponse>
                                         name="whiskey"
                                         control={control}
                                         label="Виски"
                                     />
-                                    <Checkbox<FormValues>
+                                    <Checkbox<GuestResponse>
                                         name="vodka"
                                         control={control}
                                         label="Водка"
                                     />
-                                    <Checkbox<FormValues>
+                                    <Checkbox<GuestResponse>
                                         name="wine"
                                         control={control}
                                         label="Вино"
                                     />
-                                    <Checkbox<FormValues>
+                                    <Checkbox<GuestResponse>
                                         name="champagne"
                                         control={control}
                                         label="Шампанское"
                                     />
-                                    <Checkbox<FormValues>
+                                    <Checkbox<GuestResponse>
                                         name="nonAlco"
                                         control={control}
                                         label="Что-нибудь безалкогольное"
@@ -138,20 +126,20 @@ const Confirmation: FC = () => {
 
                                 <div className={styles.group}>
                                     <p>Предпочтения по еде</p>
-                                    <Checkbox<FormValues>
+                                    <Checkbox<GuestResponse>
                                         name="removeMeat"
                                         control={control}
                                         label="Убрать мясо"
                                     />
 
-                                    <Checkbox<FormValues>
+                                    <Checkbox<GuestResponse>
                                         name="isAllergy"
                                         control={control}
                                         label="Есть аллергия"
                                     />
 
                                     {isAllergy && (
-                                        <TextInput<FormValues>
+                                        <TextInput<GuestResponse>
                                             name="allergyType"
                                             control={control}
                                             placeholder="Аллергия"

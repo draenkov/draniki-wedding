@@ -1,0 +1,73 @@
+@use 'styles/variables' as vars;
+@use 'styles/mixins' as mixins;
+
+.guests {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  @include mixins.breakpoint(xs) {
+    gap: 16px;
+  }
+}
+
+.guestActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+
+  button {
+    flex: 1;
+  }
+
+  @include mixins.breakpoint(xs) {
+    gap: 16px;
+  }
+}
+
+.guestList {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.guestListColumn {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 40%;
+  gap: 5px;
+}
+
+.guestListItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.guestBtn {
+  cursor: pointer;
+  padding: 2px 8px;
+  border: none;
+  border-radius: vars.$borderRadiusMini;
+  background-color: transparent;
+  color: vars.$colorTextPrimary;
+  transition: all .2s ease;
+  text-align: left;
+  white-space: nowrap;
+
+  &:focus {
+    border: none;
+  }
+
+  &:focus-visible,
+  &:active {
+    background-color: vars.$backgroundAccent;
+    outline: none;
+  }
+
+  &:disabled {
+    opacity: .5;
+  }
+}

@@ -1,0 +1,35 @@
+@use 'styles/variables' as vars;
+@use 'styles/mixins' as mixins;
+
+.closeBtn {
+    position: absolute;
+    top: 22px;
+    right: 20px;
+    display: flex;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 6px;
+    width: auto;
+    border: none;
+    margin: 0;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+
+    &:hover,
+    &:active {
+        background-color: transparent;
+    }
+
+    @include mixins.breakpoint(xs) {
+        top: 12px;
+        right: 10px;
+
+        img {
+            max-width: 16px;
+            max-height: 16px;
+        }
+    }
+}
