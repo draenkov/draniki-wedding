@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import styles from 'components/Admin/AllergySummary/AllergySummary.module.scss';
 import { AllergySummaryProps } from 'components/Admin/AllergySummary/AllergySummary.types';
-import { GuestResponse } from 'components/Confirmation/Confirmation.types';
+import { GuestResponse } from 'components/Main/Confirmation/Confirmation.types';
 const AllergySummary: FC<AllergySummaryProps> = ({ guestResponses }) => {
     const [info, setInfo] = useState<GuestResponse[] | null>(null);
 

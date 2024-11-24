@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import styles from 'components/DressCode/DressCode.module.scss';
+import styles from 'components/Main/DressCode/DressCode.module.scss';
 import photo from 'assets/img/photo2.jpg';
 import Image from 'next/image';
 

@@ -1,6 +1,6 @@
 import { getDatabase, get, ref, child, set, remove } from '@firebase/database';
 import { app } from 'firebase/config';
-import { GuestResponse } from 'components/Confirmation/Confirmation.types';
+import { GuestResponse } from 'components/Main/Confirmation/Confirmation.types';
 
 export const getGuestResponses = async (): Promise<Record<string, GuestResponse>> => {
     const dbRef = ref(getDatabase(app));

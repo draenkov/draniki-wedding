@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import styles from 'components/Admin/VegansSummary/VegansSummary.module.scss';
 import { VegansSummaryProps } from 'components/Admin/VegansSummary/VegansSummary.types';
-import { GuestResponse } from 'components/Confirmation/Confirmation.types';
+import { GuestResponse } from 'components/Main/Confirmation/Confirmation.types';
 const VegansSummary: FC<VegansSummaryProps> = ({ guestResponses }) => {
     const [info, setInfo] = useState<GuestResponse[] | null>(null);
 

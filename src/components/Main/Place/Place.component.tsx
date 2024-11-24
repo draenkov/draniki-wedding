@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import styles from 'components/Place/Place.module.scss';
+import styles from 'components/Main/Place/Place.module.scss';
 
 const Place: FC = () => (
     <div className={styles.wrap}>

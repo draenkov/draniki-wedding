@@ -1,16 +1,16 @@
 'use client';
 
 import React, { FC, useEffect, useState } from 'react';
-import styles from 'components/Confirmation/Confirmation.module.scss';
+import styles from 'components/Main/Confirmation/Confirmation.module.scss';
 import { useForm } from 'react-hook-form';
 import TextInput from 'components/Form/Controls/TextInput/TextInput.component';
 import RadioInput from 'components/Form/Controls/RadioInput/RadioInput.component';
 import Checkbox from 'components/Form/Controls/Checkbox/Checkbox.component';
 import Button from 'components/Button/Button.component';
-import { schema } from 'components/Confirmation/Confirmation.config';
+import { schema } from 'components/Main/Confirmation/Confirmation.config';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { getGuests, setGuestResponse } from 'api/admin';
-import { GuestResponse } from 'components/Confirmation/Confirmation.types';
+import { GuestResponse } from 'components/Main/Confirmation/Confirmation.types';
 
 const defaultValues: GuestResponse = {
     name: '',

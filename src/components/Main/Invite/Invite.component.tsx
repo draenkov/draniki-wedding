@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import styles from 'components/Invite/Invite.module.scss';
+import styles from 'components/Main/Invite/Invite.module.scss';
 import { fontAccent } from 'styles/fonts';
 import Image from 'next/image';
 import photo from 'assets/img/photo1.png';

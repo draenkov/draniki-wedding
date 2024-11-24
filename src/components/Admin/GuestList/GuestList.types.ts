@@ -1,4 +1,4 @@
-import { GuestResponse } from 'components/Confirmation/Confirmation.types';
+import { GuestResponse } from 'components/Main/Confirmation/Confirmation.types';
 
 export interface GuestFormValues {
     name: string;

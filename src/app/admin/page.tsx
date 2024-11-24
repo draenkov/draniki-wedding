@@ -11,7 +11,7 @@ import { signOut } from 'api/auth';
 import { getGuestResponses, getGuests } from 'api/admin';
 import Widgets from 'components/Admin/Widgets/Widgets.component';
 import GuestList from 'components/Admin/GuestList/GuestList.component';
-import { GuestResponse } from 'components/Confirmation/Confirmation.types';
+import { GuestResponse } from 'components/Main/Confirmation/Confirmation.types';
 import DrinksSummary from 'components/Admin/DrinksSummary/DrinksSummary.component';
 import VegansSummary from 'components/Admin/VegansSummary/VegansSummary.component';
 import AllergySummary from 'components/Admin/AllergySummary/AllergySummary.component';

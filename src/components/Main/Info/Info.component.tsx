@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import styles from 'components/Info/Info.module.scss';
+import styles from 'components/Main/Info/Info.module.scss';
 import Image from 'next/image';
 import photo from 'assets/img/photo2.jpg';
 

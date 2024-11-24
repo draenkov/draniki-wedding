@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import styles from 'components/Timeline/Timeline.module.scss';
+import styles from 'components/Main/Timeline/Timeline.module.scss';
 import GlassesIcon from 'assets/svg/glasses.svg';
 import RingsIcon from 'assets/svg/rings.svg';
 import PlateIcon from 'assets/svg/plate.svg';
