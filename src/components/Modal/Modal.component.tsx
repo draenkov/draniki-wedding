@@ -110,7 +110,7 @@ const Modal: FC<ModalProps> = ({
                         </div>
                     </div>
                 )}
-                {!hideClose && (
+                {!hideClose && title && (
                     <div className={styles.closeButton}>
                         <CloseButton
                             dataTest="close_modal_btn"

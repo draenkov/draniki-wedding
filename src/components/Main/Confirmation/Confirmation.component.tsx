@@ -11,6 +11,10 @@ import { schema } from 'components/Main/Confirmation/Confirmation.config';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { getGuests, setGuestResponse } from 'api/admin';
 import { GuestResponse } from 'components/Main/Confirmation/Confirmation.types';
+import { Simulate } from 'react-dom/test-utils';
+import reset = Simulate.reset;
+import { scrollToFirstError } from 'helpers/scrollToFirstError';
+import SuccessModal from 'components/Main/Confirmation/SuccessModal/SuccessModal.component';
 
 const defaultValues: GuestResponse = {
     name: '',
@@ -38,7 +42,9 @@ const confirmationOptions = [
 
 const Confirmation: FC = () => {
     const [guests, setGuests] = useState<Record<string, string> | null>(null);
-    const { handleSubmit, control, watch } = useForm<GuestResponse>({
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const { handleSubmit, control, watch, reset } = useForm<GuestResponse>({
         mode: 'onBlur',
         defaultValues,
         resolver: yupResolver(schema),
@@ -62,7 +68,12 @@ const Confirmation: FC = () => {
     const isNegative = watch().confirmation === 'negative';
 
     const onSubmit = async (values: GuestResponse): Promise<void> => {
+        setIsLoading(true);
         await setGuestResponse(values);
+        setIsModalOpen(true);
+
+        reset();
+        setIsLoading(false);
     };
 
     return (
@@ -76,7 +87,10 @@ const Confirmation: FC = () => {
                         <p>Ваши ответы очень помогут нам при организации свадьбы</p>
                     </div>
 
-                    <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+                    <form
+                        onSubmit={handleSubmit(onSubmit, scrollToFirstError)}
+                        className={styles.form}
+                    >
                         <TextInput<GuestResponse>
                             name="name"
                             control={control}
@@ -150,8 +164,10 @@ const Confirmation: FC = () => {
                             </>
                         )}
 
-                        <Button type="submit" text="Отправить" />
+                        <Button type="submit" text="Отправить" isDisabled={isLoading} />
                     </form>
+
+                    <SuccessModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
                 </div>
             </div>
         </div>

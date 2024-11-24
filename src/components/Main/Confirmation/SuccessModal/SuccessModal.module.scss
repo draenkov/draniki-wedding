@@ -1,0 +1,11 @@
+@use 'styles/variables' as vars;
+@use 'styles/mixins' as mixins;
+
+.body {
+  display: flex;
+  padding: 25px;
+
+  @include mixins.breakpoint(xs) {
+    padding: 16px;
+  }
+}

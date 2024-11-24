@@ -26,7 +26,7 @@ const Checkbox = <T extends FieldValues>({
                     data-test={name}
                     onChange={onChange}
                     onBlur={onBlur}
-                    value={value}
+                    checked={value}
                     disabled={isDisabled}
                 />
                 <span className={styles.customCheckbox}>
