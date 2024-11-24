@@ -1,0 +1,12 @@
+@use 'styles/variables' as vars;
+@use 'styles/mixins' as mixins;
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  @include mixins.breakpoint(xs) {
+    gap: 16px;
+  }
+}

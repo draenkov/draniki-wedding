@@ -13,6 +13,8 @@ import Widgets from 'components/Admin/Widgets/Widgets.component';
 import GuestList from 'components/Admin/GuestList/GuestList.component';
 import { GuestResponse } from 'components/Confirmation/Confirmation.types';
 import DrinksSummary from 'components/Admin/DrinksSummary/DrinksSummary.component';
+import VegansSummary from 'components/Admin/VegansSummary/VegansSummary.component';
+import AllergySummary from 'components/Admin/AllergySummary/AllergySummary.component';
 
 const Admin: FC = () => {
     const { user } = useAuthContext();
@@ -76,20 +78,19 @@ const Admin: FC = () => {
                     <div className={styles.btnWrap}>
                         <Button text="Выйти" onClick={handleSignOut} />
                     </div>
-
                     <Widgets guests={guests} guestResponses={guestResponses} />
-
                     <div className={styles.line} />
-
                     <GuestList
                         guests={guests}
                         guestResponses={guestResponses}
                         handleGetGuests={handleGetGuests}
                     />
-
                     <div className={styles.line} />
-
                     <DrinksSummary guests={guests} guestResponses={guestResponses} />
+                    <div className={styles.line} />
+                    <VegansSummary guestResponses={guestResponses} />
+                    <div className={styles.line} />
+                    <AllergySummary guestResponses={guestResponses} />
                 </div>
             </div>
         </div>

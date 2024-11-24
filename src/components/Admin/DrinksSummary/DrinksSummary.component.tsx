@@ -13,23 +13,25 @@ const order = [
 const DrinksSummary: FC<DrinksSummaryProps> = ({ guests, guestResponses }) => {
     const [info, setInfo] = useState<DrinksInfo | null>(null);
     const calculate = () => {
-        const allGuests = guests?.length;
+        if (guestResponses) {
+            const allGuests = guests?.length;
 
-        const responses = Object.values({ ...guestResponses });
-        const whiskey = responses.filter(response => response.whiskey)?.length;
-        const vodka = responses.filter(response => response.vodka)?.length;
-        const wine = responses.filter(response => response.wine)?.length;
-        const champagne = responses.filter(response => response.champagne)?.length;
-        const nonAlco = responses.filter(response => response.nonAlco)?.length;
+            const responses = Object.values(guestResponses);
+            const whiskey = responses.filter(response => response.whiskey)?.length;
+            const vodka = responses.filter(response => response.vodka)?.length;
+            const wine = responses.filter(response => response.wine)?.length;
+            const champagne = responses.filter(response => response.champagne)?.length;
+            const nonAlco = responses.filter(response => response.nonAlco)?.length;
 
-        setInfo({
-            allGuests,
-            whiskey,
-            vodka,
-            wine,
-            champagne,
-            nonAlco,
-        });
+            setInfo({
+                allGuests,
+                whiskey,
+                vodka,
+                wine,
+                champagne,
+                nonAlco,
+            });
+        }
     };
 
     useEffect(() => {

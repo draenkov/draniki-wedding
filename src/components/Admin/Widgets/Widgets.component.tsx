@@ -5,20 +5,24 @@ import styles from 'components/Admin/Widgets/Widgets.module.scss';
 const Widgets: FC<WidgetsProps> = ({ guests, guestResponses }) => {
     const [info, setInfo] = useState<WidgetsInfo | null>(null);
     const calculate = () => {
-        const allGuests = guests?.length;
-        const positive = Object.values({ ...guestResponses }).filter(
-            response => response.confirmation === 'positive',
-        )?.length;
-        const negative = Object.values({ ...guestResponses }).filter(
-            response => response.confirmation === 'negative',
-        )?.length;
-        const daysLeft = Math.floor((new Date('2025-07-12') - new Date()) / (1000 * 60 * 60 * 24));
-        setInfo({
-            allGuests,
-            positive,
-            negative,
-            daysLeft,
-        });
+        if (guestResponses) {
+            const allGuests = guests?.length;
+            const positive = Object.values(guestResponses).filter(
+                response => response.confirmation === 'positive',
+            )?.length;
+            const negative = Object.values(guestResponses).filter(
+                response => response.confirmation === 'negative',
+            )?.length;
+            const daysLeft = Math.floor(
+                (new Date('2025-07-12') - new Date()) / (1000 * 60 * 60 * 24),
+            );
+            setInfo({
+                allGuests,
+                positive,
+                negative,
+                daysLeft,
+            });
+        }
     };
 
     useEffect(() => {
@@ -34,11 +38,15 @@ const Widgets: FC<WidgetsProps> = ({ guests, guestResponses }) => {
     return (
         <div className={styles.wrap}>
             <div className={styles.widget}>
-                <p>{info?.positive} / {info?.allGuests}</p>
+                <p>
+                    {info?.positive} / {info?.allGuests}
+                </p>
                 <p className={styles.tip}>Согласие</p>
             </div>
             <div className={styles.widget}>
-                <p>{info?.negative} / {info?.allGuests}</p>
+                <p>
+                    {info?.negative} / {info?.allGuests}
+                </p>
                 <p className={styles.tip}>Отказ</p>
             </div>
             <div className={styles.widget}>
