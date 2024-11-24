@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
 import styles from 'components/Main/DressCode/DressCode.module.scss';
-import photo from 'assets/img/photo2.jpg';
-import Image from 'next/image';
 
 const colors = ['#252525', '#2e3458', '#828956', '#c16036', '#fff7d2'];
 
@@ -23,12 +21,6 @@ const DressCode: FC = () => (
                         />
                     ))}
                 </div>
-                <div className={styles.line} />
-                <Image
-                    src={photo as string}
-                    alt="Третье лучшее фото молодых"
-                    className={styles.photo}
-                />
             </div>
         </div>
     </div>

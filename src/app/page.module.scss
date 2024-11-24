@@ -21,3 +21,15 @@
 
   @include mixins.container;
 }
+
+.rigths {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 50px;
+
+  @include mixins.breakpoint(xs) {
+    margin-bottom: 25px;
+  }
+}

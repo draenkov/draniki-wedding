@@ -18,6 +18,10 @@ const Home: FC = () => (
         <Place />
         <DressCode />
         <Confirmation />
+        <div className={styles.rigths}>
+            <p>#dranikFest2025</p>
+            <p>#плюсОдинДраник</p>
+        </div>
     </div>
 );
 

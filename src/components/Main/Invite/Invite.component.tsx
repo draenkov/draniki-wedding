@@ -2,7 +2,8 @@ import React, { FC } from 'react';
 import styles from 'components/Main/Invite/Invite.module.scss';
 import { fontAccent } from 'styles/fonts';
 import Image from 'next/image';
-import photo from 'assets/img/photo1.png';
+import photo from 'assets/img/photo1.jpg';
+import Loader from 'components/Loader/Loader.component';
 
 const Invite: FC = () => (
     <div className={styles.wrap}>

@@ -24,15 +24,24 @@
     border-radius: vars.$borderRadiusMini;
   }
 
-  iframe {
+  .frameWrap {
     width: 100%;
     height: 400px;
+    background-color: vars.$backgroundPrimary;
     border: none;
     border-radius: vars.$borderRadiusMini;
     box-shadow: vars.$shadow;
 
     @include mixins.breakpoint(xs) {
       height: 200px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: vars.$borderRadiusMini;
+      box-shadow: vars.$shadow;
     }
   }
 }

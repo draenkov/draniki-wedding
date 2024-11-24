@@ -9,6 +9,12 @@
   height: 100vh;
   background-color: vars.$backgroundPrimary;
   z-index: 99;
+
+  &.mini {
+    width: auto;
+    height: inherit;
+    background-color: transparent;
+  }
 }
 
 .loader {
