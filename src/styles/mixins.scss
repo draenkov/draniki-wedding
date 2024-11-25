@@ -5,3 +5,16 @@
         @content;
     }
 }
+
+@mixin container {
+    padding: 0 calc(50% - 360px);
+
+    @include breakpoint(sm) {
+        padding: 0 calc(50% - 270px);
+    }
+
+    @include breakpoint(xs) {
+        padding: 0 16px;
+        gap: 25px;
+    }
+}

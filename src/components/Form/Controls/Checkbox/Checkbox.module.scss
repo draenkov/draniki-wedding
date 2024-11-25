@@ -1,0 +1,73 @@
+@use 'styles/variables' as vars;
+@use 'styles/mixins' as mixins;
+
+.title {
+    line-height: 25px;
+    font-size: 14px;
+}
+
+.checkIcon {
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 7px;
+    transform: rotate(-135deg) translate(1px, -1px);
+    opacity: 0;
+    background: transparent;
+    transition: all .2s linear;
+
+    &::before {
+        width: 9px;
+        height: 3px;
+        content: "";
+        display: block;
+        background-color: vars.$backgroundAccent;
+    }
+
+    &::after {
+        width: 3px;
+        height: 9px;
+        content: "";
+        display: block;
+        background-color: vars.$backgroundAccent;
+    }
+}
+
+.checkbox {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+
+    &:checked + .customCheckbox .checkIcon {
+        opacity: 1;
+        transition: all .2s linear;
+    }
+
+    &:focus-visible + .customCheckbox {
+        outline: 2px solid vars.$colorAccent;
+    }
+
+    &:disabled + .customCheckbox {
+        background-color: darken(vars.$backgroundInput, 5);
+        cursor: default;
+    }
+}
+
+.customCheckbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    background-color: vars.$backgroundInput;
+    box-shadow: vars.$inputShadow;
+    cursor: pointer;
+}
+
+.checkboxWrap {
+    position: relative;
+    padding-left: 35px;
+}

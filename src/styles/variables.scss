@@ -7,5 +7,24 @@ $grid-breakpoints: (
     xg: 1399px,
 );
 
-$colorText: #525b5e;
-$backgroundLight: #ffffff;
+//colors
+$colorTextPrimary: #333D51;
+$colorTextSecondary: #F4F3EA;
+$colorBorder: $colorTextPrimary;
+$colorAccent: #D3AC2B;
+$colorError: #eb5757;
+$colorPlaceholder: #CBD0D8;
+
+//background
+$backgroundAccent: $colorAccent;
+$backgroundPrimary: $colorTextSecondary;
+$backgroundInput: #FFFFFF;
+$backgroundLine: $colorTextPrimary;
+
+//shadow
+$shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.15);
+$inputShadow: rgba(0, 0, 0, 0.15) 0 1px 4px 0 inset;
+
+//border
+$borderRadius: 16px;
+$borderRadiusMini: 8px;

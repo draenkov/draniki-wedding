@@ -1,0 +1,61 @@
+@use '../../../styles/variables' as vars;
+@use '../../../styles/mixins' as mixins;
+
+.wrap {
+  color: vars.$colorTextPrimary;
+  background-color: vars.$backgroundAccent;
+
+  @include mixins.container;
+}
+
+.place {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border: 1px solid vars.$colorBorder;
+  border-radius: vars.$borderRadius;
+  gap: 50px;
+  margin-bottom: 50px;
+
+  @include mixins.breakpoint(xs) {
+    padding: 16px;
+    gap: 25px;
+    margin-bottom: 25px;
+    border-radius: vars.$borderRadiusMini;
+  }
+
+  .frameWrap {
+    width: 100%;
+    height: 400px;
+    background-color: vars.$backgroundPrimary;
+    border: none;
+    border-radius: vars.$borderRadiusMini;
+    box-shadow: vars.$shadow;
+
+    @include mixins.breakpoint(xs) {
+      height: 200px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: vars.$borderRadiusMini;
+      box-shadow: vars.$shadow;
+    }
+  }
+}
+
+.title {
+  font-size: 40px;
+
+  @include mixins.breakpoint(xs) {
+    font-size: 24px;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}

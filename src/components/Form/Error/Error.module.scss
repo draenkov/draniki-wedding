@@ -1,0 +1,11 @@
+@use 'styles/variables' as vars;
+@use 'styles/mixins' as mixins;
+
+.error {
+  color: vars.$colorError;
+  font-size: 12px;
+
+  @include mixins.breakpoint(xs) {
+    font-size: 10px;
+  }
+}

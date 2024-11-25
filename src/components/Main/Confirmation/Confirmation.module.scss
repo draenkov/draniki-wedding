@@ -1,0 +1,63 @@
+@use '../../../styles/variables' as vars;
+@use '../../../styles/mixins' as mixins;
+
+.wrap {
+  color: vars.$colorTextPrimary;
+  background-color: vars.$backgroundPrimary;
+}
+
+.container {
+  @include mixins.container;
+}
+
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border: 1px solid vars.$colorBorder;
+  border-radius: vars.$borderRadius;
+  gap: 50px;
+  margin-bottom: 50px;
+  background-color: vars.$backgroundPrimary;
+
+  @include mixins.breakpoint(xs) {
+    padding: 16px;
+    gap: 25px;
+    margin-bottom: 25px;
+    border-radius: vars.$borderRadiusMini;
+  }
+}
+
+.titleWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  @include mixins.breakpoint(xs) {
+    gap: 16px;
+  }
+}
+
+.title {
+  font-size: 24px;
+
+  @include mixins.breakpoint(xs) {
+    font-size: 16px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  @include mixins.breakpoint(xs) {
+    gap: 25px;
+  }
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

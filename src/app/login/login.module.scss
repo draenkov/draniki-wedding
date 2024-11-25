@@ -1,0 +1,37 @@
+@use '../../styles/variables' as vars;
+@use '../../styles/mixins' as mixins;
+
+.wrap {
+  height: 100vh;
+  color: vars.$colorTextPrimary;
+  display: flex;
+  flex-direction: column;
+  background-color: vars.$backgroundPrimary;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin: 50px 0;
+
+  @include mixins.breakpoint(xs) {
+    margin: 25px 0;
+  }
+
+  @include mixins.container;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 25px;
+  border: 1px solid vars.$colorBorder;
+  border-radius: vars.$borderRadius;
+
+  @include mixins.breakpoint(xs) {
+    padding: 16px;
+    gap: 16px;
+  }
+}

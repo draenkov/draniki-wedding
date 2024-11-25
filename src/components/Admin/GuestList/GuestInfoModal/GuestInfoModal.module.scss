@@ -1,0 +1,27 @@
+@use 'styles/variables' as vars;
+@use 'styles/mixins' as mixins;
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 25px;
+
+  @include mixins.breakpoint(xs) {
+    padding: 16px;
+    gap: 16px;
+  }
+}
+
+.field {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+
+  @include mixins.breakpoint(xs) {
+    gap: 16px;
+    width: 100%;
+  }
+}

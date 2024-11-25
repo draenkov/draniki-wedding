@@ -1,0 +1,32 @@
+@use 'styles/variables' as vars;
+@use 'styles/mixins' as mixins;
+
+.button {
+    cursor: pointer;
+    padding: 18px;
+    border: none;
+    border-radius: vars.$borderRadiusMini;
+    background-color: vars.$backgroundAccent;
+    color: vars.$colorTextSecondary;
+    transition: all .2s ease;
+    box-shadow: vars.$shadow;
+    text-align: center;
+
+    &:focus {
+        border: none;
+    }
+
+    &:focus-visible,
+    &:active {
+        background-color: darken(vars.$backgroundAccent, 5);
+        outline: none;
+    }
+
+    &:disabled {
+        opacity: .5;
+    }
+
+    @include mixins.breakpoint(sm) {
+        padding: 12px;
+    }
+}

@@ -1,0 +1,37 @@
+@use 'styles/variables' as vars;
+
+.loaderWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: vars.$backgroundPrimary;
+  z-index: 99;
+
+  &.mini {
+    width: auto;
+    height: inherit;
+    background-color: transparent;
+  }
+}
+
+.loader {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border: 4px solid vars.$colorAccent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
