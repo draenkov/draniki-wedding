@@ -6,9 +6,11 @@ const AllergySummary: FC<AllergySummaryProps> = ({ guestResponses }) => {
     const [info, setInfo] = useState<GuestResponse[] | null>(null);
 
     useEffect(() => {
-        if (guestResponses?.length) {
+        if (guestResponses) {
             setInfo(Object.values(guestResponses).filter(response => response.isAllergy));
         }
+
+        console.log(guestResponses);
     }, [guestResponses]);
 
     return (
@@ -16,9 +18,9 @@ const AllergySummary: FC<AllergySummaryProps> = ({ guestResponses }) => {
             <p>Аллергия:</p>
 
             {guestResponses && info?.length ? (
-                info?.map(guest => (
+                info?.map((guest, index) => (
                     <p key={guest.name}>
-                        {guest.name} - {guest.allergyType}
+                        {index + 1} {guest.name} - {guest.allergyType}
                     </p>
                 ))
             ) : (

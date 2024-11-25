@@ -7,7 +7,7 @@ import TextInput from 'components/Form/Controls/TextInput/TextInput.component';
 import RadioInput from 'components/Form/Controls/RadioInput/RadioInput.component';
 import Checkbox from 'components/Form/Controls/Checkbox/Checkbox.component';
 import Button from 'components/Button/Button.component';
-import { schema } from 'components/Main/Confirmation/Confirmation.config';
+import { clearName, schema } from 'components/Main/Confirmation/Confirmation.config';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { getGuests, setGuestResponse } from 'api/admin';
 import { GuestResponse } from 'components/Main/Confirmation/Confirmation.types';
@@ -69,7 +69,7 @@ const Confirmation: FC = () => {
 
     const onSubmit = async (values: GuestResponse): Promise<void> => {
         setIsLoading(true);
-        await setGuestResponse(values);
+        await setGuestResponse({ ...values, name: clearName(values.name) });
         setIsModalOpen(true);
 
         reset();

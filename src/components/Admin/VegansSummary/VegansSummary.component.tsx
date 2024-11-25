@@ -6,7 +6,7 @@ const VegansSummary: FC<VegansSummaryProps> = ({ guestResponses }) => {
     const [info, setInfo] = useState<GuestResponse[] | null>(null);
 
     useEffect(() => {
-        if (guestResponses?.length) {
+        if (guestResponses) {
             setInfo(Object.values(guestResponses).filter(response => response.removeMeat));
         }
     }, [guestResponses]);
@@ -16,7 +16,11 @@ const VegansSummary: FC<VegansSummaryProps> = ({ guestResponses }) => {
             <p>Не едят мясо:</p>
 
             {guestResponses && info?.length ? (
-                info?.map(guest => <p key={guest.name}>{guest.name}</p>)
+                info?.map((guest, index) => (
+                    <p key={guest.name}>
+                        {index + 1} {guest.name}
+                    </p>
+                ))
             ) : (
                 <p>Нет информации</p>
             )}

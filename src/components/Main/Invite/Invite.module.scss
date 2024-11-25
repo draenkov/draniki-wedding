@@ -27,14 +27,12 @@
 .info {
   width: 70%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   border-bottom: 1px solid vars.$colorBorder;
-  padding: 0 25px;
   gap: 25px;
 
   @include mixins.breakpoint(xs) {
-    padding: 0 8px;
     gap: 8px;
   }
 }

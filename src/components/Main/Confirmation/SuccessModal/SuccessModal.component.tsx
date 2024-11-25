@@ -11,7 +11,7 @@ const SuccessModal: FC<SuccessModalProps> = ({ isOpen, onClose }) => (
             <p>Спасибо за ответ!</p>
             <Image
                 src={photo as string}
-                alt="Третье лучшее фото молодых"
+                alt="Руби"
                 className={styles.photo}
             />
         </div>
