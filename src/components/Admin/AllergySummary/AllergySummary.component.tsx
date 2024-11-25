@@ -9,8 +9,6 @@ const AllergySummary: FC<AllergySummaryProps> = ({ guestResponses }) => {
         if (guestResponses) {
             setInfo(Object.values(guestResponses).filter(response => response.isAllergy));
         }
-
-        console.log(guestResponses);
     }, [guestResponses]);
 
     return (

@@ -1,9 +1,8 @@
-import { FieldErrors } from 'react-hook-form';
+import { type FieldErrors } from 'react-hook-form';
 
 const ADDITIONAL_INDENT = 70;
 
 export const scrollToFirstError = (errors: FieldErrors): void => {
-    console.log(errors);
     const fieldName = Object.keys(errors)[0];
 
     const firstErrorField =

@@ -2,9 +2,14 @@ import React, { FC, useEffect, useState } from 'react';
 import { WidgetsInfo, WidgetsProps } from 'components/Admin/Widgets/Widgets.types';
 import styles from 'components/Admin/Widgets/Widgets.module.scss';
 
+const MS_IN_SC = 1000;
+const SC_IN_MN = 60;
+const MN_IN_HR = 60;
+const HR_IN_D = 24;
+
 const Widgets: FC<WidgetsProps> = ({ guests, guestResponses }) => {
     const [info, setInfo] = useState<WidgetsInfo | null>(null);
-    const calculate = () => {
+    const calculate = (): void => {
         if (guestResponses) {
             const allGuests = guests?.length;
             const positive = Object.values(guestResponses).filter(
@@ -14,7 +19,7 @@ const Widgets: FC<WidgetsProps> = ({ guests, guestResponses }) => {
                 response => response.confirmation === 'negative',
             )?.length;
             const daysLeft = Math.floor(
-                (new Date('2025-07-12') - new Date()) / (1000 * 60 * 60 * 24),
+                (new Date('2025-07-12') - new Date()) / (MS_IN_SC * SC_IN_MN * MN_IN_HR * HR_IN_D),
             );
             setInfo({
                 allGuests,

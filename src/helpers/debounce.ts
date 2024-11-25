@@ -1,10 +1,13 @@
-export const debounce = (func, timeout = 300) => {
-    let timer;
+export const debounce = <T extends (...args: unknown[]) => ReturnType<T>>(
+    callback: T,
+    timeout: number,
+): ((...args: unknown[]) => void) => {
+    let timer: ReturnType<typeof setTimeout>;
 
-    return (...args) => {
+    return (...args: unknown[]) => {
         clearTimeout(timer);
         timer = setTimeout(() => {
-            func.apply(this, args);
+            callback(...args);
         }, timeout);
     };
 };

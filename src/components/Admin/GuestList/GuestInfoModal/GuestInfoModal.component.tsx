@@ -23,16 +23,20 @@ const GuestInfoModal: FC<GuestInfoModalProps> = ({ isOpen, onClose, guestInfo })
             {guestInfo ? (
                 <>
                     {order.map(({ title, value }) => {
-                        const key =
+                        const isPositive =
                             value === 'confirmation'
                                 ? guestInfo[value] === 'positive'
-                                : guestInfo[value];
+                                : !!guestInfo[value];
 
                         return (
                             <div className={styles.field} key={value}>
                                 <p>{title}</p>
                                 <Image
-                                    src={key ? (PositiveIcon as string) : (NegativeIcon as string)}
+                                    src={
+                                        isPositive
+                                            ? (PositiveIcon as string)
+                                            : (NegativeIcon as string)
+                                    }
                                     alt="icon"
                                 />
                             </div>

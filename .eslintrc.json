@@ -62,6 +62,7 @@
       }
     ],
     "no-console": "error",
+    "react-hooks/exhaustive-deps": "off",
     "no-magic-numbers": [
       "error",
       {

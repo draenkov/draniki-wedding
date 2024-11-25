@@ -17,7 +17,6 @@ const Modal: FC<ModalProps> = ({
     onClose = () => {},
     children,
     icon,
-    closeStyle = 'default',
     isBlockOutsideClick = false,
 }) => {
     const modalRef = useRef<HTMLDivElement | null>(null);
@@ -112,11 +111,7 @@ const Modal: FC<ModalProps> = ({
                 )}
                 {!hideClose && title && (
                     <div className={styles.closeButton}>
-                        <CloseButton
-                            dataTest="close_modal_btn"
-                            onClick={onClose}
-                            btnStyle={closeStyle}
-                        />
+                        <CloseButton onClick={onClose} />
                     </div>
                 )}
                 <div className={styles.modalBody}>{children}</div>

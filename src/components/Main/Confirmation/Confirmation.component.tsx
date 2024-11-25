@@ -11,8 +11,6 @@ import { clearName, schema } from 'components/Main/Confirmation/Confirmation.con
 import { yupResolver } from '@hookform/resolvers/yup';
 import { getGuests, setGuestResponse } from 'api/admin';
 import { GuestResponse } from 'components/Main/Confirmation/Confirmation.types';
-import { Simulate } from 'react-dom/test-utils';
-import reset = Simulate.reset;
 import { scrollToFirstError } from 'helpers/scrollToFirstError';
 import SuccessModal from 'components/Main/Confirmation/SuccessModal/SuccessModal.component';
 

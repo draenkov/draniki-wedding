@@ -10,9 +10,11 @@ const order = [
     { title: 'Что-нибудь безалкогольное', value: 'nonAlco' },
 ];
 
+const PERCENT100 = 100;
+
 const DrinksSummary: FC<DrinksSummaryProps> = ({ guests, guestResponses }) => {
     const [info, setInfo] = useState<DrinksInfo | null>(null);
-    const calculate = () => {
+    const calculate = (): void => {
         if (guestResponses) {
             const allGuests = guests?.length;
 
@@ -53,7 +55,7 @@ const DrinksSummary: FC<DrinksSummaryProps> = ({ guests, guestResponses }) => {
                         <div
                             className={`${styles.progress} ${!info?.[value] ? styles.empty : ''}`}
                             style={{
-                                background: `linear-gradient(to right, #333D51 ${(info?.[value] / info?.allGuests) * 100}%, transparent ${(info?.[value] / info?.allGuests) * 100}%)`,
+                                background: `linear-gradient(to right, #333D51 ${(info?.[value] / info?.allGuests) * PERCENT100}%, transparent ${(info?.[value] / info?.allGuests) * PERCENT100}%)`,
                             }}
                         >
                             {info?.[value] || 0}
