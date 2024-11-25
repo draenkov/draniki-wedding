@@ -14,7 +14,7 @@ export const viewport: Viewport = {
     maximumScale: 1,
     width: 'device-width',
     userScalable: false,
-}
+};
 
 const RootLayout: FC<LayoutProps> = ({ children }) => (
     <html lang="ru">
