@@ -6,10 +6,15 @@ export interface DrinksSummaryProps {
 }
 
 export interface DrinksInfo {
-    allGuests?: number;
-    whiskey?: number;
-    vodka?: number;
-    wine?: number;
-    champagne?: number;
-    nonAlco?: number;
+    allGuests: number;
+    whiskey: number;
+    vodka: number;
+    wine: number;
+    champagne: number;
+    nonAlco: number;
+}
+
+export interface OrderItem {
+    title: string;
+    value: keyof DrinksInfo;
 }

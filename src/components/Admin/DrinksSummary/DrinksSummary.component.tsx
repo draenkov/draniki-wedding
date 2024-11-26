@@ -1,8 +1,12 @@
 import React, { FC, useEffect, useState } from 'react';
 import styles from 'components/Admin/DrinksSummary/DrinksSummary.module.scss';
-import { DrinksInfo, DrinksSummaryProps } from 'components/Admin/DrinksSummary/DrinksSummary.types';
+import {
+    DrinksInfo,
+    DrinksSummaryProps,
+    type OrderItem,
+} from 'components/Admin/DrinksSummary/DrinksSummary.types';
 
-const order = [
+const order: OrderItem[] = [
     { title: 'Виски', value: 'whiskey' },
     { title: 'Водка', value: 'vodka' },
     { title: 'Вино', value: 'wine' },
@@ -16,7 +20,7 @@ const DrinksSummary: FC<DrinksSummaryProps> = ({ guests, guestResponses }) => {
     const [info, setInfo] = useState<DrinksInfo | null>(null);
     const calculate = (): void => {
         if (guestResponses) {
-            const allGuests = guests?.length;
+            const allGuests = guests?.length || 0;
 
             const responses = Object.values(guestResponses);
             const whiskey = responses.filter(response => response.whiskey)?.length;
@@ -52,14 +56,16 @@ const DrinksSummary: FC<DrinksSummaryProps> = ({ guests, guestResponses }) => {
                 order.map(({ title, value }) => (
                     <div className={styles.item} key={value}>
                         <p>{title}</p>
-                        <div
-                            className={`${styles.progress} ${!info?.[value] ? styles.empty : ''}`}
-                            style={{
-                                background: `linear-gradient(to right, #333D51 ${(info?.[value] / info?.allGuests) * PERCENT100}%, transparent ${(info?.[value] / info?.allGuests) * PERCENT100}%)`,
-                            }}
-                        >
-                            {info?.[value] || 0}
-                        </div>
+                        {info && (
+                            <div
+                                className={`${styles.progress} ${!info?.[value] ? styles.empty : ''}`}
+                                style={{
+                                    background: `linear-gradient(to right, #333D51 ${(info[value] / info?.allGuests) * PERCENT100}%, transparent ${(info?.[value] / info?.allGuests) * PERCENT100}%)`,
+                                }}
+                            >
+                                {info?.[value] || 0}
+                            </div>
+                        )}
                     </div>
                 ))}
         </div>
