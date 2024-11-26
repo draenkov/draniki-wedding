@@ -1,7 +1,7 @@
-@import 'variables';
+@use 'styles/variables' as vars;
 
 @mixin breakpoint($size) {
-    @media (max-width: map-get($grid-breakpoints, $size)) {
+    @media (max-width: map-get(vars.$grid-breakpoints, $size)) {
         @content;
     }
 }
