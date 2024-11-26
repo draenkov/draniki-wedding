@@ -1,7 +1,7 @@
 'use client';
 
 import React, { FC, useEffect } from 'react';
-import styles from 'app/draniki-wedding/login/login.module.scss';
+import styles from 'app/login/login.module.scss';
 import TextInput from 'components/Form/Controls/TextInput/TextInput.component';
 import { useForm } from 'react-hook-form';
 import { fontPrimary } from 'styles/fonts';

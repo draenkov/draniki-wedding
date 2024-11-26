@@ -1,4 +1,4 @@
-import styles from 'app/draniki-wedding/page.module.scss';
+import styles from 'app/page.module.scss';
 import { FC } from 'react';
 import { fontPrimary } from 'styles/fonts';
 import Invite from 'components/Main/Invite/Invite.component';
