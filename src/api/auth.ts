@@ -1,7 +1,7 @@
 import type { UserCredential } from 'firebase/auth';
 import { FirebaseError } from 'firebase/app';
 import { getAuth, signInWithEmailAndPassword, signOut as handleSignOut } from 'firebase/auth';
-import { app } from 'firebase/config';
+import { app } from 'lib/firebase';
 
 interface SignInResult {
     result: UserCredential | null;

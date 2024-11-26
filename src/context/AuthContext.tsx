@@ -1,7 +1,7 @@
 'use client';
 
 import { getAuth, onAuthStateChanged, type User } from 'firebase/auth';
-import { app } from 'firebase/config';
+import { app } from 'lib/firebase';
 import { createContext, FC, ReactNode, useContext, useEffect, useState } from 'react';
 import Loader from 'components/Loader/Loader.component';
 

@@ -1,5 +1,5 @@
 import { getDatabase, get, ref, child, set, remove } from 'firebase/database';
-import { app } from 'firebase/config';
+import { app } from 'lib/firebase';
 import { GuestResponse } from 'components/Main/Confirmation/Confirmation.types';
 
 export const getGuestResponses = async (): Promise<Record<string, GuestResponse> | undefined> => {
