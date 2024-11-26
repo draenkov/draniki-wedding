@@ -18,7 +18,7 @@ const Invite: FC = () => (
             </div>
         </div>
         <Image
-            src={photo as string}
+            src={photo}
             alt="Лучшее фото молодых"
             width={400}
             height={400}

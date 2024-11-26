@@ -19,7 +19,8 @@ const Widgets: FC<WidgetsProps> = ({ guests, guestResponses }) => {
                 response => response.confirmation === 'negative',
             )?.length;
             const daysLeft = Math.floor(
-                (new Date('2025-07-12') - new Date()) / (MS_IN_SC * SC_IN_MN * MN_IN_HR * HR_IN_D),
+                (new Date('2025-07-12').getMilliseconds() - new Date().getMilliseconds()) /
+                    (MS_IN_SC * SC_IN_MN * MN_IN_HR * HR_IN_D),
             );
             setInfo({
                 allGuests,

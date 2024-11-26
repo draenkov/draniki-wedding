@@ -3,6 +3,7 @@ import Label from 'components/Form/Label/Label.component';
 import Error from 'components/Form/Error/Error.component';
 import { RadioGroupProps } from 'components/Form/Controls/RadioInput/RadioGroup.types';
 import styles from 'components/Form/Controls/RadioInput/RadioGroup.module.scss';
+import { ReactElement } from 'react';
 
 const RadioInput = <T extends FieldValues>({
     label,
@@ -11,7 +12,7 @@ const RadioInput = <T extends FieldValues>({
     isDisabled,
     name,
     control,
-}: RadioGroupProps<T>): JSX.Element => {
+}: RadioGroupProps<T>): ReactElement => {
     const {
         field: { value, onChange, onBlur },
         fieldState,
