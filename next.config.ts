@@ -1,11 +1,7 @@
-import type { NextConfig } from 'next';
-
-const nextConfig: NextConfig = {
-    basePath: '/draniki-wedding',
+/** @type {import('next').NextConfig} */
+const nextConfig = {
     output: 'export',
-    sassOptions: {
-        silenceDeprecations: ['legacy-js-api'],
-    },
+    reactStrictMode: true,
 };
 
-export default nextConfig;
+module.exports = nextConfig;
