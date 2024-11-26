@@ -1,8 +1,8 @@
-import { getDatabase, get, ref, child, set, remove } from '@firebase/database';
+import { getDatabase, get, ref, child, set, remove } from 'firebase/database';
 import { app } from 'firebase/config';
 import { GuestResponse } from 'components/Main/Confirmation/Confirmation.types';
 
-export const getGuestResponses = async (): Promise<Record<string, GuestResponse>> => {
+export const getGuestResponses = async (): Promise<Record<string, GuestResponse> | undefined> => {
     const dbRef = ref(getDatabase(app));
 
     const snapshot = await get(child(dbRef, 'guestResponses'));
@@ -24,7 +24,7 @@ export const removeGuestResponse = async (name: string): Promise<void> => {
     await remove(child(dbRef, 'guestResponses/' + name));
 };
 
-export const getGuests = async (): Promise<Record<string, string>> => {
+export const getGuests = async (): Promise<Record<string, string> | undefined> => {
     const dbRef = ref(getDatabase(app));
 
     const snapshot = await get(child(dbRef, 'guests'));
