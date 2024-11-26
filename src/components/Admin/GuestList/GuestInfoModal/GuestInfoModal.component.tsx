@@ -1,12 +1,15 @@
 import React, { FC } from 'react';
 import Modal from 'components/Modal/Modal.component';
-import { GuestInfoModalProps } from 'components/Admin/GuestList/GuestInfoModal/GuestInfoModal.types';
+import {
+    GuestInfoModalProps,
+    type OrderItem,
+} from 'components/Admin/GuestList/GuestInfoModal/GuestInfoModal.types';
 import styles from 'components/Admin/GuestList/GuestInfoModal/GuestInfoModal.module.scss';
 import PositiveIcon from 'assets/svg/positive.svg';
 import NegativeIcon from 'assets/svg/negative.svg';
 import Image from 'next/image';
 
-const order = [
+const order: OrderItem[] = [
     { title: 'Подтверждение', value: 'confirmation' },
     { title: 'Виски', value: 'whiskey' },
     { title: 'Водка', value: 'vodka' },
