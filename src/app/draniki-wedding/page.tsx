@@ -1,4 +1,4 @@
-import styles from 'app/page.module.scss';
+import styles from 'app/draniki-wedding/page.module.scss';
 import { FC } from 'react';
 import { fontPrimary } from 'styles/fonts';
 import Invite from 'components/Main/Invite/Invite.component';
@@ -19,8 +19,9 @@ const Home: FC = () => (
         <DressCode />
         <Confirmation />
         <div className={styles.rigths}>
-            <p>#dranikFest2025</p>
+            <p>#newDranikFamily</p>
             <p>#плюсОдинДраник</p>
+            <p>#dranikFest2025</p>
         </div>
     </div>
 );

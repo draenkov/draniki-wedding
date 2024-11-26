@@ -1,7 +1,7 @@
 'use client';
 
 import React, { FC, useEffect, useState } from 'react';
-import styles from 'app/admin/admin.module.scss';
+import styles from 'app/draniki-wedding/admin/admin.module.scss';
 import { fontPrimary } from 'styles/fonts';
 import Button from 'components/Button/Button.component';
 import { useRouter } from 'next/navigation';
@@ -28,10 +28,13 @@ const Admin: FC = () => {
         const res = await getGuests();
         if (res) {
             const sortedRes = Object.values(res).sort((a, b) => {
-                if (a.split(' ').at(-1) < b.split(' ').at(-1)) {
+                const lastName = a.split(' ').at(-1) || '';
+                const nextLastName = b.split(' ').at(-1) || '';
+
+                if (lastName < nextLastName) {
                     return -1;
                 }
-                if (a.split(' ').at(-1) > b.split(' ').at(-1)) {
+                if (lastName > nextLastName) {
                     return 1;
                 }
                 return 0;
