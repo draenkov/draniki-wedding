@@ -31,7 +31,7 @@ const Timeline: FC = () => (
                 <div className={styles.timingItem}>
                     <Image src={PlateIcon as string} alt="rings" />
                     <div className={styles.time}>
-                        <p className={styles.value}>17:00</p>
+                        <p className={styles.value}>17:30</p>
                         <p>Банкет</p>
                     </div>
                 </div>
