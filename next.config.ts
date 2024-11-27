@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-    basePath: '/wedding-invitation',
+    basePath: '/draniki-wedding',
     output: 'export',
     sassOptions: {
         silenceDeprecations: ['legacy-js-api'],

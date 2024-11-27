@@ -1,7 +1,7 @@
 {
-  "name": "wedding-invitation",
+  "name": "draniki-wedding",
   "version": "0.1.0",
-  "homepage": "https://draenkov.github.io/wedding-invitation/",
+  "homepage": "https://draenkov.github.io/draniki-wedding/",
   "author": "Vyacheslav Draenkov",
   "private": true,
   "scripts": {
