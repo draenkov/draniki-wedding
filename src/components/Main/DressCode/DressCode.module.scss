@@ -5,6 +5,7 @@
   color: vars.$colorTextPrimary;
   background-color: vars.$backgroundPrimary;
   padding: 50px 0;
+  overflow-x: hidden;
 
   @include mixins.breakpoint(xs) {
     padding: 25px 0;
