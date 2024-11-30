@@ -8,19 +8,22 @@
   padding: 25px;
   border: 1px solid vars.$colorBorder;
   border-radius: vars.$borderRadius;
-  gap: 50px;
+  gap: 25px;
 
   @include mixins.breakpoint(xs) {
     padding: 16px;
+    gap: 16px;
     border-radius: vars.$borderRadiusMini;
   }
 }
 
 .h1 {
   font-size: 100px;
+  padding: 25px ;
 
   @include mixins.breakpoint(xs) {
     font-size: 60px;
+    padding: 16px ;
   }
 }
 
@@ -31,9 +34,11 @@
   flex-wrap: wrap;
   border-bottom: 1px solid vars.$colorBorder;
   gap: 25px;
+  margin: 25px;
 
   @include mixins.breakpoint(xs) {
     gap: 8px;
+    margin: 16px ;
   }
 }
 
@@ -50,13 +55,22 @@
 
 .photo {
   border-radius: 100%;
-  max-width: 100%;
-  max-height: fit-content;
-  box-shadow: vars.$shadow;
+  padding: 25px;
+
+  img {
+    border-radius: 100%;
+    box-shadow: vars.$shadow;
+    max-width: 100%;
+    max-height: fit-content;
+
+    @include mixins.breakpoint(sm) {
+      width: 200px;
+      height: 200px;
+    }
+  }
 
   @include mixins.breakpoint(sm) {
-    width: 200px;
-    height: 200px;
+    padding: 16px;
   }
 }
 
@@ -74,7 +88,7 @@
   flex-direction: column;
   gap: 25px;
   text-align: center;
-  padding: 0 25px 25px;
+  padding: 25px;
 
   @include mixins.breakpoint(xs) {
     gap: 16px;

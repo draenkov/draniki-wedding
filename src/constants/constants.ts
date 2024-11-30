@@ -1,0 +1,10 @@
+export const START_POSITION_X = 200;
+export const START_POSITION_MOBILE_X = 100;
+export const START_POSITION_Y = 40;
+export const START_POSITION_MOBILE_Y = 20;
+export const MOTION_END1 = 0.1;
+export const MOTION_END2 = 0.2;
+export const MOTION_END3 = 0.3;
+export const MOTION_END4 = 0.4;
+export const MOTION_END5 = 0.5;
+export const MOTION_END6 = 0.6;
