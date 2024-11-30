@@ -32,9 +32,13 @@
 }
 
 .photo {
-  width: 100%;
-  height: fit-content;
-  box-shadow: vars.$shadow;
+  z-index: 2;
+
+  img {
+    width: 100%;
+    height: fit-content;
+    box-shadow: vars.$shadow;
+  }
 }
 
 .title {
