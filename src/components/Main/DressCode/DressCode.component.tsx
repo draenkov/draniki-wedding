@@ -55,7 +55,7 @@ const DressCode: FC = () => {
                 <div className={styles.dressCode}>
                     <p>
                         Если вам сложно определиться с нарядом на праздник, то вы можете поддержать
-                        цветовую гамму нашей свадьбы
+                        цветовую гамму нашей свадьбы.
                     </p>
                     <div className={styles.colorsWrap}>
                         {colors.map(({ backgroundColor, x }) => (
