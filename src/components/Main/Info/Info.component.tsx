@@ -7,18 +7,15 @@ import photo from 'assets/img/photo2.jpg';
 import { motion } from 'motion/react';
 import useDeviceDetect from 'hooks/useDeviceDetect';
 import { useParallax } from 'hooks/useParallax';
-
-const START_POSITION = 40;
-const START_POSITION_MOBILE = 20;
-const MOTION_END = 0.4;
+import { MOTION_END4, START_POSITION_MOBILE_Y, START_POSITION_Y } from 'constants/constants';
 
 const Info: FC = () => {
     const scrollRef = useRef(null);
     const isMobile = useDeviceDetect() === 'mobile';
 
-    const opacity = useParallax(scrollRef, MOTION_END, [0, 1]);
-    const y = useParallax(scrollRef, MOTION_END, [
-        isMobile ? START_POSITION_MOBILE : START_POSITION,
+    const opacity = useParallax(scrollRef, MOTION_END4, [0, 1]);
+    const y = useParallax(scrollRef, MOTION_END4, [
+        isMobile ? START_POSITION_MOBILE_Y : START_POSITION_Y,
         0,
     ]);
 

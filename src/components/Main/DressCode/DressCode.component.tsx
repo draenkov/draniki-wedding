@@ -5,37 +5,38 @@ import styles from 'components/Main/DressCode/DressCode.module.scss';
 import { motion } from 'motion/react';
 import useDeviceDetect from 'hooks/useDeviceDetect';
 import { useParallax } from 'hooks/useParallax';
-
-const START_POSITION = 200;
-const START_POSITION_MOBILE = 100;
-const MOTION_END1 = 0.2;
-const MOTION_END2 = 0.3;
-const MOTION_END3 = 0.4;
-const MOTION_END4 = 0.5;
-const MOTION_END5 = 0.6;
+import {
+    MOTION_END2,
+    MOTION_END3,
+    MOTION_END4,
+    MOTION_END5,
+    MOTION_END6,
+    START_POSITION_MOBILE_X,
+    START_POSITION_X,
+} from 'constants/constants';
 
 const DressCode: FC = () => {
     const isMobile = useDeviceDetect() === 'mobile';
     const scrollRef = useRef(null);
 
-    const x1 = useParallax(scrollRef, MOTION_END1, [
-        isMobile ? START_POSITION_MOBILE : START_POSITION,
+    const x1 = useParallax(scrollRef, MOTION_END2, [
+        isMobile ? START_POSITION_MOBILE_X : START_POSITION_X,
         0,
     ]);
-    const x2 = useParallax(scrollRef, MOTION_END2, [
-        isMobile ? START_POSITION_MOBILE : START_POSITION,
+    const x2 = useParallax(scrollRef, MOTION_END3, [
+        isMobile ? START_POSITION_MOBILE_X : START_POSITION_X,
         0,
     ]);
-    const x3 = useParallax(scrollRef, MOTION_END3, [
-        isMobile ? START_POSITION_MOBILE : START_POSITION,
+    const x3 = useParallax(scrollRef, MOTION_END4, [
+        isMobile ? START_POSITION_MOBILE_X : START_POSITION_X,
         0,
     ]);
-    const x4 = useParallax(scrollRef, MOTION_END4, [
-        isMobile ? START_POSITION_MOBILE : START_POSITION,
+    const x4 = useParallax(scrollRef, MOTION_END5, [
+        isMobile ? START_POSITION_MOBILE_X : START_POSITION_X,
         0,
     ]);
-    const x5 = useParallax(scrollRef, MOTION_END5, [
-        isMobile ? START_POSITION_MOBILE : START_POSITION,
+    const x5 = useParallax(scrollRef, MOTION_END6, [
+        isMobile ? START_POSITION_MOBILE_X : START_POSITION_X,
         0,
     ]);
 
