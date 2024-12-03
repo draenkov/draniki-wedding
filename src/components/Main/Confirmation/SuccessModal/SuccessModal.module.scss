@@ -16,8 +16,6 @@
 
 .photo {
   border-radius: 100%;
-  max-width: 200px;
-  max-height: 200px;
   box-shadow: vars.$shadow;
 
   @include mixins.breakpoint(xs) {

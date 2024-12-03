@@ -32,7 +32,7 @@ const Info: FC = () => {
                 </div>
             </motion.div>
             <div className={styles.photo}>
-                <Image src={photo} alt="Второе лучшее фото молодых" />
+                <Image src={photo} width={720} height={480} alt="Второе лучшее фото молодых" />
             </div>
         </div>
     );

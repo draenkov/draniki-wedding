@@ -9,7 +9,7 @@ const SuccessModal: FC<SuccessModalProps> = ({ isOpen, onClose }) => (
     <Modal isOpen={isOpen} onClose={onClose}>
         <div className={styles.body}>
             <p>Спасибо за ответ!</p>
-            <Image src={photo} alt="Руби" className={styles.photo} />
+            <Image src={photo} alt="Руби" width={200} height={200} className={styles.photo} />
         </div>
     </Modal>
 );
