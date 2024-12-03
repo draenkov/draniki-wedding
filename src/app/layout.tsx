@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import 'styles/global.scss';
 import { LayoutProps } from 'app/types';
-import { AuthContextProvider } from 'context/AuthContext';
 import { Metadata, Viewport } from 'next';
 
 export const metadata: Metadata = {
@@ -18,9 +17,7 @@ export const viewport: Viewport = {
 
 const RootLayout: FC<LayoutProps> = ({ children }) => (
     <html lang="ru">
-        <body>
-            <AuthContextProvider>{children}</AuthContextProvider>
-        </body>
+        <body>{children}</body>
     </html>
 );
 
