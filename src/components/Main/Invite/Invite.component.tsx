@@ -1,11 +1,8 @@
-'use client';
-
 import React, { FC } from 'react';
 import styles from 'components/Main/Invite/Invite.module.scss';
 import { fontAccent } from 'styles/fonts';
 import Image from 'next/image';
 import photo from 'assets/img/photo1.jpg';
-import { motion } from 'motion/react';
 
 const Invite: FC = () => (
     <div className={styles.wrap}>
@@ -21,13 +18,9 @@ const Invite: FC = () => (
             </div>
         </div>
 
-        <motion.div
-            className={styles.photo}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-        >
+        <div className={styles.photo}>
             <Image src={photo} alt="Лучшее фото молодых" width={400} height={400} priority />
-        </motion.div>
+        </div>
 
         <div className={styles.description}>
             <h2 className={styles.title}>Дорогие друзья и семья!</h2>

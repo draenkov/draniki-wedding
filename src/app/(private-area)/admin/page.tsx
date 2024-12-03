@@ -1,7 +1,7 @@
 'use client';
 
 import React, { FC, useEffect, useState } from 'react';
-import styles from 'app/admin/admin.module.scss';
+import styles from 'app/(private-area)/admin/admin.module.scss';
 import { fontPrimary } from 'styles/fonts';
 import Button from 'components/Button/Button.component';
 import { useRouter } from 'next/navigation';
