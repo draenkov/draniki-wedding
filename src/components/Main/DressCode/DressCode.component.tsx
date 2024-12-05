@@ -51,21 +51,30 @@ const DressCode: FC = () => {
     return (
         <div className={styles.wrap} ref={scrollRef}>
             <div className={styles.container}>
-                <h3 className={styles.title}>Дресс-код</h3>
-                <div className={styles.dressCode}>
-                    <p>
-                        Если вам сложно определиться с нарядом на праздник, то вы можете поддержать
-                        цветовую гамму нашей свадьбы.
-                    </p>
-                    <div className={styles.colorsWrap}>
-                        {colors.map(({ backgroundColor, x }) => (
-                            <motion.div
-                                className={styles.color}
-                                key={backgroundColor}
-                                style={{ backgroundColor, x }}
-                            />
-                        ))}
+                <div>
+                    <h3 className={styles.title}>Дресс-код</h3>
+                    <div className={styles.dressCode}>
+                        <p>
+                            Если вам сложно определиться с нарядом на праздник, то вы можете
+                            поддержать цветовую гамму нашей свадьбы.
+                        </p>
+                        <div className={styles.colorsWrap}>
+                            {colors.map(({ backgroundColor, x }) => (
+                                <motion.div
+                                    className={styles.color}
+                                    key={backgroundColor}
+                                    style={{ backgroundColor, x }}
+                                />
+                            ))}
+                        </div>
                     </div>
+                </div>
+
+                <div className={styles.extraInfo}>
+                    <p>
+                        Небольшая, но очень важная для нас просьба - воздержитесь от дарения цветов
+                        или вина!
+                    </p>
                 </div>
             </div>
         </div>
